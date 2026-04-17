@@ -1,6 +1,6 @@
 import {
-  Scale, FileText, Globe, TrendingUp, CheckCircle, ArrowRight,
-  Newspaper, Users, BarChart
+  Search, Megaphone, Handshake, Globe, CheckCircle, ArrowRight,
+  FileText, Users, BarChart
 } from 'lucide-react';
 import { useNavigation } from '../context/NavigationContext';
 import Button from '../components/Button';
