@@ -60,4 +60,9 @@
       transition: none;
     }
   }
+
+  /* Hero section text shadow for readability */
+  .hero-text-shadow {
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+  }
 }

@@ -7,6 +7,7 @@ import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import homeImage from '../assets/home1.webp';
+import aboutImage from '../assets/home2.webp';
 
 const stats = [
   { value: '500+', label: 'Solar Installations', icon: Sun },
@@ -176,9 +177,9 @@ export default function Home() {
             </AnimateOnScroll>
             <AnimateOnScroll variant="slide-right" as="div" className="relative">
               <img
-                src="https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src={aboutImage}
                 alt="Solar panels"
-                className="rounded-2xl shadow-card w-full object-cover aspect-[4/3]"
+                className="w-full h-full object-cover rounded-xl shadow-card aspect-[4/3]"
               />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-card-hover p-5 border border-gray-100">
                 <div className="text-2xl font-extrabold text-solar mb-1">Est. 2018</div>

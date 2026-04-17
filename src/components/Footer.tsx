@@ -79,22 +79,33 @@ export default function Footer() {
             <h3 className="font-semibold text-white text-sm uppercase tracking-widest mb-5">
               Contact
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li className="flex items-start gap-3 text-white/70 text-sm">
                 <MapPin className="w-4 h-4 text-solar mt-0.5 shrink-0" />
-                <span>Dehradun, Uttarakhand, India – 248001</span>
+                <div>
+                  <p className="font-semibold text-white/90 mb-0.5">Registered Office</p>
+                  <span>Lakshya Enclave Block C, Banjarawala,<br />Dehradun – 248001 (Uttarakhand)</span>
+                </div>
               </li>
-              <li className="flex items-center gap-3 text-white/70 text-sm">
-                <Phone className="w-4 h-4 text-solar shrink-0" />
-                <a href="tel:+911234567890" className="hover:text-solar transition-colors">
-                  +91 123 456 7890
-                </a>
+              <li className="flex items-start gap-3 text-white/70 text-sm">
+                <Phone className="w-4 h-4 text-solar mt-0.5 shrink-0" />
+                <div>
+                  <p className="font-semibold text-white/90 mb-1">Mobile</p>
+                  <div className="flex flex-col gap-1">
+                    <a href="tel:+918881220222" className="hover:text-solar transition-colors">888 1220 222</a>
+                    <a href="tel:+919997015895" className="hover:text-solar transition-colors">999 7015 895</a>
+                    <a href="tel:+917830144244" className="hover:text-solar transition-colors">783 0144 244</a>
+                  </div>
+                </div>
               </li>
-              <li className="flex items-center gap-3 text-white/70 text-sm">
-                <Mail className="w-4 h-4 text-solar shrink-0" />
-                <a href="mailto:info@reda.org.in" className="hover:text-solar transition-colors">
-                  info@reda.org.in
-                </a>
+              <li className="flex items-start gap-3 text-white/70 text-sm">
+                <Mail className="w-4 h-4 text-solar mt-0.5 shrink-0" />
+                <div>
+                  <p className="font-semibold text-white/90 mb-0.5">Mail ID</p>
+                  <a href="mailto:redauttarakhand@gmail.com" className="hover:text-solar transition-colors break-all">
+                    redauttarakhand@gmail.com
+                  </a>
+                </div>
               </li>
             </ul>
           </div>

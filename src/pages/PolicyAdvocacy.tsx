@@ -120,10 +120,10 @@ export default function PolicyAdvocacy() {
           <span className="inline-block text-sm font-semibold uppercase tracking-widest text-solar mb-4">
             Policy & Advocacy
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
             Shaping a Solar-Friendly Policy Landscape
           </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow">
             REDA works alongside policymakers, regulators, and civil society to create an environment where solar energy can thrive — for the benefit of every Uttarakhand citizen.
           </p>
         </div>

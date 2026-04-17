@@ -116,10 +116,10 @@ export default function Initiatives() {
           <span className="inline-block text-sm font-semibold uppercase tracking-widest text-solar mb-4">
             Our Initiatives
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
             Education, Empowerment, and Energy for All
           </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow">
             Our initiatives go beyond installations — we build knowledge, skills, and community-level momentum for a solar-powered Uttarakhand.
           </p>
         </div>

@@ -92,16 +92,16 @@ export default function Projects() {
             alt="Solar services"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-blue-trust/85" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.25))' }} />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block text-sm font-semibold uppercase tracking-widest text-solar mb-4">
             Our Projects
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
             Comprehensive Solar Solutions for Uttarakhand
           </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow">
             From individual homes to remote villages, we deliver end-to-end solar energy services tailored to the unique landscape and needs of our state.
           </p>
         </div>

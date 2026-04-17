@@ -80,16 +80,16 @@ export default function About() {
             alt="Uttarakhand mountains"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-green-deep/85" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.25))' }} />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block text-sm font-semibold uppercase tracking-widest text-solar mb-4">
             About REDA
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
             Championing Clean Energy Across the Himalayas
           </h1>
-          <p className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto hero-text-shadow">
             Since 2018, the Renewable Energy Development Association has been working tirelessly to bring affordable, reliable solar energy to every corner of Uttarakhand.
           </p>
         </div>
