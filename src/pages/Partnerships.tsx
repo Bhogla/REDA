@@ -143,47 +143,63 @@ export default function Partnerships() {
 
       {/* Categories */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           {partnerCategories.map(({ icon: Icon, title, color, bg, border, desc, partners, benefits }, idx) => (
             <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}>
-            <div
-              className={`grid lg:grid-cols-5 gap-8 items-start bg-white rounded-2xl p-8 shadow-card border ${border}`}
-            >
-              <div className="lg:col-span-3">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-12 h-12 ${bg} rounded-xl flex items-center justify-center`}>
-                    <Icon className={`w-6 h-6 ${color}`} />
-                  </div>
-                  <h2 className="text-2xl font-extrabold text-brand-primary">{title}</h2>
-                </div>
-                <p className="text-brand-secondary leading-relaxed mb-5">{desc}</p>
-                <div className="space-y-2">
-                  {partners.map((p) => (
-                    <div key={p} className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-deep mt-0.5 shrink-0" />
-                      <span className="text-sm text-brand-secondary">{p}</span>
+              <div
+                className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white rounded-3xl p-8 md:p-12 shadow-card border border-gray-100"
+              >
+                {/* Left Side: Info & Partners */}
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className={`w-14 h-14 ${bg} rounded-2xl flex items-center justify-center shadow-sm`}>
+                      <Icon className={`w-7 h-7 ${color}`} />
                     </div>
-                  ))}
-                </div>
-              </div>
-              <div className="lg:col-span-2">
-                <div className={`${bg} rounded-xl p-5 border ${border}`}>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-brand-secondary mb-3">
-                    Partnership Benefits
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary tracking-tight">{title}</h2>
+                  </div>
+                  
+                  <p className="text-brand-secondary text-lg leading-relaxed max-w-lg">
+                    {desc}
                   </p>
-                  <ul className="space-y-2">
-                    {benefits.map((b) => (
-                      <li key={b} className="flex items-start gap-2">
-                        <div className={`w-5 h-5 rounded-full ${bg} flex items-center justify-center shrink-0 mt-0.5`}>
-                          <div className={`w-2 h-2 rounded-full ${color.replace('text-', 'bg-')}`} />
+
+                  <div className="space-y-4 pt-2">
+                    <p className="text-xs font-bold uppercase tracking-widest text-brand-secondary/60">
+                      Our Network Includes
+                    </p>
+                    <div className="grid grid-cols-1 gap-3">
+                      {partners.map((p) => (
+                        <div key={p} className="flex items-start gap-3 group">
+                          <div className={`w-5 h-5 rounded-full ${bg} flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform`}>
+                            <CheckCircle className={`w-3.5 h-3.5 ${color}`} />
+                          </div>
+                          <span className="text-sm md:text-base text-brand-secondary font-medium">{p}</span>
                         </div>
-                        <span className="text-sm text-brand-secondary">{b}</span>
-                      </li>
-                    ))}
-                  </ul>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side: Benefits Box */}
+                <div className={`${bg.replace('bg-', 'bg-opacity-40 bg-')} rounded-3xl p-8 md:p-10 border border-gray-50 flex flex-col justify-center h-full relative overflow-hidden`}>
+                  <div className={`absolute top-0 right-0 w-32 h-32 ${bg} opacity-50 blur-3xl -mr-16 -mt-16 rounded-full`} />
+                  
+                  <div className="relative z-10">
+                    <p className="text-xs font-black uppercase tracking-[0.2em] text-brand-secondary/50 mb-6">
+                      Partnership Benefits
+                    </p>
+                    <ul className="space-y-5">
+                      {benefits.map((b) => (
+                        <li key={b} className="flex items-start gap-4">
+                          <div className={`w-2 h-2 rounded-full ${color.replace('text-', 'bg-')} mt-2 shrink-0`} />
+                          <span className="text-brand-primary font-bold text-base leading-tight">
+                            {b}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
             </AnimateOnScroll>
           ))}
         </div>
