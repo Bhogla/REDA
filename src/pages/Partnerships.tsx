@@ -1,6 +1,6 @@
 import {
   Building2, Leaf, TrendingUp, GraduationCap, Handshake,
-  CheckCircle, ArrowRight, Globe
+  ArrowRight, Globe
 } from 'lucide-react';
 import { useNavigation } from '../context/NavigationContext';
 import Button from '../components/Button';
@@ -144,7 +144,7 @@ export default function Partnerships() {
       {/* Categories */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          {partnerCategories.map(({ icon: Icon, title, color, bg, border, desc, partners, benefits }, idx) => (
+          {partnerCategories.map(({ icon: Icon, title, color, bg, desc, partners, benefits }, idx) => (
             <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}>
               <div
                 className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white rounded-3xl p-8 md:p-12 shadow-card border border-gray-100"
