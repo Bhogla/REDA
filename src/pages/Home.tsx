@@ -1,6 +1,6 @@
 import {
   Sun, Wind, Zap, Users, Building2, Leaf, ArrowRight, CheckCircle,
-  BookOpen, Megaphone, GraduationCap, ChevronRight, TrendingUp, Globe, Award
+  FileText, ChevronRight, TrendingUp, Globe, Award
 } from 'lucide-react';
 import { useNavigation } from '../context/NavigationContext';
 import Button from '../components/Button';
@@ -19,22 +19,22 @@ const stats = [
 const projects = [
   {
     icon: Sun,
-    title: 'Residential Solar',
-    desc: 'Tailored rooftop solar solutions for homes across Uttarakhand — reduce your electricity bills and carbon footprint.',
+    title: 'Residential Solar Support',
+    desc: 'Empowering homeowners with guidance on technology selection, subsidies, and connecting with reliable member installers.',
     color: 'text-solar',
     bg: 'bg-orange-50',
   },
   {
     icon: Users,
-    title: 'Community Solar',
-    desc: 'Shared solar infrastructure for villages and communities, bringing clean energy to areas without individual resources.',
+    title: 'Community Solar Projects',
+    desc: 'Developing shared solar infrastructure to bring clean, collaborative energy solutions to Himalayan villages.',
     color: 'text-green-deep',
     bg: 'bg-green-50',
   },
   {
     icon: Wind,
     title: 'Off-Grid Solutions',
-    desc: 'Reliable solar systems for remote mountain communities and areas with unreliable grid connectivity.',
+    desc: 'Designing sustainable standalone energy systems for remote mountain communities with limited grid access.',
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
   },
@@ -42,22 +42,22 @@ const projects = [
 
 const initiatives = [
   {
-    icon: GraduationCap,
-    title: 'School Outreach',
-    desc: 'Solar literacy programs in schools across hill districts, nurturing the next generation of green energy advocates.',
-    tag: 'Education',
+    icon: Users,
+    title: 'Community Engagement',
+    desc: 'Driving awareness and adoption of solar energy across communities through grassroots outreach and education.',
+    tag: 'Engagement',
   },
   {
-    icon: BookOpen,
-    title: 'Skill Workshops',
-    desc: 'Hands-on training workshops empowering local youth and electricians to install and maintain solar systems.',
-    tag: 'Training',
+    icon: Award,
+    title: 'Technical Support',
+    desc: 'Enabling member companies with knowledge sharing, problem-solving, and technical capacity building.',
+    tag: 'Technical',
   },
   {
-    icon: Megaphone,
-    title: 'Awareness Campaigns',
-    desc: 'State-wide campaigns and community events educating citizens on solar benefits, subsidies, and adoption pathways.',
-    tag: 'Outreach',
+    icon: FileText,
+    title: 'Policy Advocacy',
+    desc: 'Working closely with the government and policymakers to create favorable renewable energy policies for Uttarakhand.',
+    tag: 'Advocacy',
   },
 ];
 
@@ -100,17 +100,21 @@ export default function Home() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
               Powering a{' '}
               <span className="text-solar">Sustainable</span>{' '}
-              Future with Solar Energy
+              Future for Uttarakhand
             </h1>
-            <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-10">
-              Promoting renewable energy adoption across Uttarakhand — from Himalayan villages to urban households. REDA is your trusted partner for a cleaner, greener tomorrow.
+            <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-6">
+              REDA is a collective of renewable energy companies working together to accelerate solar adoption, solve industry challenges, and strengthen the clean energy ecosystem.
+            </p>
+            <p className="text-white/90 font-medium mb-10 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-solar rounded-full"></span>
+              Connecting businesses, communities, and government for real impact.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" onClick={() => navigate('contact')}>
-                Get Solar Consultation
+                Join the Network
               </Button>
               <Button size="lg" variant="outline-white" onClick={() => navigate('initiatives')}>
-                Join Our Initiative
+                Explore Initiatives
               </Button>
             </div>
 
@@ -155,19 +159,19 @@ export default function Home() {
                 Dedicated to Renewable Energy Development in Uttarakhand
               </h2>
               <p className="text-brand-secondary text-lg leading-relaxed mb-6">
-                The Renewable Energy Development Association (REDA) is a non-profit organisation committed to accelerating the adoption of solar and renewable energy across Uttarakhand. We bridge the gap between policy, technology, and communities.
+                The Renewable Energy Development Association (REDA) is a registered body representing solar and renewable energy companies across Uttarakhand. We provide a collaborative platform where members share knowledge, solve challenges, and work together with policymakers.
               </p>
               <div className="grid sm:grid-cols-2 gap-4 mb-8">
                 <div className="bg-green-50 rounded-xl p-5 border border-green-100">
                   <div className="text-lg font-bold text-green-deep mb-2">Our Mission</div>
                   <p className="text-sm text-brand-secondary leading-relaxed">
-                    To democratise access to clean solar energy for every household and community in Uttarakhand.
+                    To accelerate clean energy adoption through a unified industry voice, technical excellence, and community-driven initiatives.
                   </p>
                 </div>
                 <div className="bg-blue-50 rounded-xl p-5 border border-blue-100">
                   <div className="text-lg font-bold text-blue-trust mb-2">Our Vision</div>
                   <p className="text-sm text-brand-secondary leading-relaxed">
-                    A carbon-neutral Uttarakhand powered entirely by renewable energy by 2040.
+                    To build a self-reliant Uttarakhand powered by clean, renewable energy where communities generate their own power and reduce dependence on fossil fuels.
                   </p>
                 </div>
               </div>
@@ -195,7 +199,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
-              label="Our Projects"
+              label="What We Do"
               title="Solar Solutions for Every Need"
               subtitle="From individual homes to entire communities, we design, install, and support solar energy systems across Uttarakhand."
             />

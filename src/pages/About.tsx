@@ -87,10 +87,10 @@ export default function About() {
             About REDA
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
-            Championing Clean Energy Across the Himalayas
+            Championing Clean Energy Across Uttarakhand
           </h1>
           <p className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto hero-text-shadow">
-            Since 2018, the Renewable Energy Development Association has been working tirelessly to bring affordable, reliable solar energy to every corner of Uttarakhand.
+            REDA is a collective of renewable energy companies working together to strengthen the solar ecosystem and drive sustainable growth.
           </p>
         </div>
       </section>
@@ -107,7 +107,7 @@ export default function About() {
                 <h2 className="text-2xl font-extrabold text-brand-primary">Our Mission</h2>
               </div>
               <p className="text-brand-secondary leading-relaxed text-lg">
-                To democratise access to clean, affordable solar energy for every household, community, and institution across Uttarakhand — eliminating energy poverty and reducing dependence on fossil fuels through education, advocacy, and direct action.
+                To promote solar energy adoption through collaboration, awareness, and policy support.
               </p>
             </AnimateOnScroll>
             <AnimateOnScroll variant="fade-up" delay={2} className="bg-white rounded-2xl p-8 shadow-card border border-gray-100">
@@ -118,15 +118,44 @@ export default function About() {
                 <h2 className="text-2xl font-extrabold text-brand-primary">Our Vision</h2>
               </div>
               <p className="text-brand-secondary leading-relaxed text-lg">
-                A carbon-neutral Uttarakhand where every family benefits from clean solar energy by 2040 — a thriving, self-reliant state that serves as a model for sustainable development in India.
+                A sustainable Uttarakhand powered by clean and renewable energy.
               </p>
             </AnimateOnScroll>
           </div>
         </div>
       </section>
 
+      {/* Intro & Role */}
+      <section className="pt-20 pb-8 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <AnimateOnScroll variant="slide-left">
+              <h2 className="text-3xl font-extrabold text-brand-primary mb-6">Who We Are</h2>
+              <p className="text-brand-secondary text-lg leading-relaxed">
+                The Renewable Energy Development Association (REDA) is a registered association of solar and renewable energy companies in Uttarakhand. We act as a unified platform where industry stakeholders collaborate to address challenges, share expertise, and support the growth of clean energy.
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll variant="slide-right">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { title: 'Industry Representation', icon: Users, color: 'text-blue-600', bg: 'bg-blue-50' },
+                  { title: 'Knowledge Sharing', icon: Award, color: 'text-green-600', bg: 'bg-green-50' },
+                  { title: 'Government Coordination', icon: Target, color: 'text-orange-600', bg: 'bg-orange-50' },
+                  { title: 'Ecosystem Development', icon: Leaf, color: 'text-solar', bg: 'bg-solar/10' },
+                ].map((role) => (
+                  <div key={role.title} className={`${role.bg} p-6 rounded-2xl border border-black/5`}>
+                    <role.icon className={`w-6 h-6 ${role.color} mb-3`} />
+                    <h3 className="font-bold text-brand-primary text-sm leading-tight">{role.title}</h3>
+                  </div>
+                ))}
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </div>
+      </section>
+
       {/* Values */}
-      <section className="py-20 bg-white">
+      <section className="pt-8 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
