@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Youtube } from 'lucide-react';
 import { useNavigation, PageId } from '../context/NavigationContext';
-import logoImage from '../images/logo.png';
+import logoImage from '../assets/logo.png';
 
 const footerLinks: { heading: string; links: { label: string; page: PageId }[] }[] = [
   {
