@@ -6,6 +6,7 @@ import { useNavigation } from '../context/NavigationContext';
 import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import homeImage from '../assets/home1.webp';
 
 const stats = [
   { value: '500+', label: 'Solar Installations', icon: Sun },
@@ -82,9 +83,9 @@ export default function Home() {
       <section className="relative min-h-screen flex flex-col justify-end overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src={homeImage}
             alt="Solar panels in Uttarakhand"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-xl"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-green-deep/90 via-green-deep/70 to-transparent" />
         </div>
