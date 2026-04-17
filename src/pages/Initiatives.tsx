@@ -9,56 +9,56 @@ import AnimateOnScroll from '../components/AnimateOnScroll';
 
 const initiatives = [
   {
-    icon: GraduationCap,
-    title: 'School Solar Outreach',
-    tag: 'Education',
-    color: 'text-solar',
-    bg: 'bg-orange-50',
-    img: 'https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&w=800',
-    summary: 'Inspiring the next generation of green energy advocates through interactive school programmes.',
-    desc: 'Our school outreach programme visits government and private schools across Uttarakhand with engaging sessions on solar energy, climate change, and sustainable living. Students participate in hands-on experiments, learn to build small solar models, and receive dedicated green energy workbooks.',
-    highlights: [
-      '200+ schools covered across 8 districts',
-      'Interactive solar science kits distributed',
-      'Teacher training workshops conducted',
-      'Annual "Solar Science Fair" in Dehradun',
-      'Scholarship fund for students pursuing renewable energy',
-    ],
-    districts: ['Dehradun', 'Haridwar', 'Nainital', 'Chamoli', 'Almora'],
-  },
-  {
     icon: BookOpen,
-    title: 'Solar Skill Workshops',
+    title: 'Workshops & Training',
     tag: 'Training',
     color: 'text-green-deep',
     bg: 'bg-green-50',
     img: 'https://images.pexels.com/photos/8923811/pexels-photo-8923811.jpeg?auto=compress&cs=tinysrgb&w=800',
-    summary: 'Empowering local youth and electricians with hands-on solar installation and maintenance skills.',
-    desc: 'Through 5-day intensive workshops, we train local youth, electricians, and self-help group members in solar panel installation, wiring, battery maintenance, and basic troubleshooting. Certified graduates become part of REDA\'s field technician network.',
+    summary: 'Conducting skill development programs for solar adoption.',
+    desc: 'Our specialized workshops empower local youth and electricians with the technical skills needed for solar installation and maintenance, creating livelihoods while accelerating clean energy uptake.',
     highlights: [
-      '1,500+ individuals trained since 2019',
-      'NSDC-aligned certification on completion',
-      'Stipend support for economically weaker participants',
-      'Job placement assistance with solar companies',
-      'Women-only cohorts to boost female participation',
+      'Technical skills for local electricians',
+      'Youth empowerment and job readiness',
+      'Hands-on installation experience',
+      'Certified training programs',
+      'Support for women in renewable energy',
     ],
     districts: ['All 13 districts covered'],
   },
   {
+    icon: GraduationCap,
+    title: 'School Outreach',
+    tag: 'Education',
+    color: 'text-solar',
+    bg: 'bg-orange-50',
+    img: 'https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&w=800',
+    summary: 'Educating students about renewable energy and sustainability.',
+    desc: 'Through interactive school sessions, we introduce students to the fundamentals of solar energy and the importance of environmental conservation, fostering a generation of clean energy advocates.',
+    highlights: [
+      'Interactive classroom sessions',
+      'Renewable energy science kits',
+      'Sustainability workshops for teachers',
+      'State-wide solar science fairs',
+      'Environmental awareness awards',
+    ],
+    districts: ['Dehradun', 'Haridwar', 'Nainital', 'Chamoli', 'Almora'],
+  },
+  {
     icon: Megaphone,
-    title: 'Solar Awareness Campaigns',
+    title: 'Awareness Campaigns',
     tag: 'Outreach',
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
     img: 'https://images.pexels.com/photos/3810756/pexels-photo-3810756.jpeg?auto=compress&cs=tinysrgb&w=800',
-    summary: 'State-wide campaigns that make solar adoption simple, trusted, and accessible for all.',
-    desc: 'Our awareness campaigns combine digital outreach, street events, radio programmes, and gram sabha meetings to educate citizens about solar benefits, government schemes, and how to get started. We publish multilingual materials in Hindi and Garhwali/Kumaoni dialects.',
+    summary: 'Promoting solar energy adoption through public initiatives.',
+    desc: 'Our public awareness campaigns simplify solar energy for the general public, using community meetings, radio, and digital media to demonstrate the long-term benefits of clean power for Uttarakhand.',
     highlights: [
-      'Annual "Solar Utsav" event in 5 cities',
-      'Nukkad Natak (street theatre) in 50+ villages',
-      'Radio programme on Akashvani Dehradun',
-      'WhatsApp helpline for solar queries',
-      'Multilingual brochures and YouTube tutorials',
+      'Public community meetings (Gram Sabhas)',
+      'Digital awareness materials',
+      'Informational radio broadcasts',
+      'Multilingual solar adoption guides',
+      'Community-led solar forums',
     ],
     districts: ['Statewide coverage'],
   },
@@ -117,7 +117,7 @@ export default function Initiatives() {
             Our Initiatives
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
-            Education, Empowerment, and Energy for All
+            Empowering Communities Through Renewable Energy
           </h1>
           <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow">
             Our initiatives go beyond installations — we build knowledge, skills, and community-level momentum for a solar-powered Uttarakhand.

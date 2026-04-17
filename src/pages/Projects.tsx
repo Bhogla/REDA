@@ -14,14 +14,14 @@ const projects = [
     bg: 'bg-orange-50',
     border: 'border-orange-100',
     img: 'https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=800',
-    desc: 'Our residential solar solutions are designed for the unique climate and terrain of Uttarakhand. From Dehradun plains to Munsiyari peaks — we have you covered.',
+    desc: 'Supporting households in adopting rooftop solar through awareness and ecosystem support. We connect homeowners with certified member installers and facilitate access to government subsidies.',
     features: [
-      'Free site assessment and solar feasibility study',
-      'Custom system design (1kW – 20kW)',
-      'DISCOM-approved grid-tied and hybrid systems',
-      'Government subsidy facilitation under PM Surya Ghar',
-      'Net metering registration and documentation',
-      '10-year after-sales support and AMC',
+      'Guidance on site feasibility and sizing',
+      'System design standards for hill states',
+      'Connection with certified member installers',
+      'Subsidy facilitation (PM Surya Ghar)',
+      'Net metering awareness and coordination',
+      'Network-backed after-sales support',
     ],
   },
   {
@@ -33,14 +33,14 @@ const projects = [
     bg: 'bg-green-50',
     border: 'border-green-100',
     img: 'https://images.pexels.com/photos/9799712/pexels-photo-9799712.jpeg?auto=compress&cs=tinysrgb&w=800',
-    desc: 'Community solar enables villages and groups to jointly invest in solar infrastructure, making clean energy accessible even when individual households cannot afford their own systems.',
+    desc: 'Enabling shared solar initiatives for affordable clean energy access. REDA supports community groups in designing micro-grids and navigating shared metering frameworks.',
     features: [
-      'Village-level micro-grid design and installation',
-      'Gram Sabha coordination and consent facilitation',
-      'Shared metering and billing management systems',
-      'Training of local solar operators and maintenance staff',
-      'Integration with MNRE community energy schemes',
-      'Monitoring dashboards for real-time energy tracking',
+      'Micro-grid framework development',
+      'Community consensus and mobilization',
+      'Shared metering models for villages',
+      'Training for village-level operators',
+      'Integration with state community energy schemes',
+      'Ecosystem monitoring and reporting',
     ],
   },
   {
@@ -52,14 +52,14 @@ const projects = [
     bg: 'bg-blue-50',
     border: 'border-blue-100',
     img: 'https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=800',
-    desc: 'Designed for the remotest corners of Uttarakhand where grid connectivity remains a dream. Our off-grid solar systems provide 24/7 reliable power with battery storage.',
+    desc: 'Promoting solar-powered solutions in remote areas without grid access. We work with specialized members to deliver reliable power and battery storage to high-altitude settlements.',
     features: [
-      'Solar + battery storage hybrid systems',
-      'Weather-resistant mountain-grade equipment',
-      'Solar pumping for irrigation and drinking water',
-      'Remote monitoring via IoT-enabled controllers',
-      'Solar street lighting for rural roads and paths',
-      'Emergency solar kits for disaster-prone areas',
+      'Custom off-grid package frameworks',
+      'Durable mountain-grade standards',
+      'Solar pumping support for irrigation',
+      'Remote monitoring and IoT integration',
+      'Solar lighting for un-electrified paths',
+      'Emergency solar kits for disaster resilience',
     ],
   },
 ];
@@ -99,11 +99,17 @@ export default function Projects() {
             Our Projects
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
-            Comprehensive Solar Solutions for Uttarakhand
+            Driving Solar Adoption Across Communities
           </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow">
-            From individual homes to remote villages, we deliver end-to-end solar energy services tailored to the unique landscape and needs of our state.
+          <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow mb-8">
+            REDA supports and enables impactful renewable energy initiatives across Uttarakhand.
           </p>
+          <div className="flex justify-center">
+            <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/90 text-sm px-4 py-2 rounded-full border border-white/20">
+              <CheckCircle className="w-4 h-4 text-solar" />
+              Projects are implemented by member organizations within the REDA network
+            </span>
+          </div>
         </div>
       </section>
 
