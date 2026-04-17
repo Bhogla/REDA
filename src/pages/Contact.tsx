@@ -7,24 +7,24 @@ import AnimateOnScroll from '../components/AnimateOnScroll';
 const contactInfo = [
   {
     icon: MapPin,
-    label: 'Office Address',
-    value: '12, Rajpur Road, Dehradun, Uttarakhand – 248001, India',
+    label: 'Registered Office',
+    value: 'Lakshya Enclave Block C, Banjarawala, Dehradun – 248001 (Uttarakhand)',
     color: 'text-solar',
     bg: 'bg-orange-50',
   },
   {
     icon: Phone,
-    label: 'Phone',
-    value: '+91 135 123 4567',
-    href: 'tel:+911351234567',
+    label: 'Mobile',
+    value: '888 1220 222 / 999 7015 895 / 783 0144 244',
+    href: 'tel:+918881220222',
     color: 'text-green-deep',
     bg: 'bg-green-50',
   },
   {
     icon: Mail,
-    label: 'Email',
-    value: 'info@reda.org.in',
-    href: 'mailto:info@reda.org.in',
+    label: 'Mail ID',
+    value: 'redauttarakhand@gmail.com',
+    href: 'mailto:redauttarakhand@gmail.com',
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
   },
@@ -136,7 +136,7 @@ export default function Contact() {
                 <p className="text-brand-primary font-semibold text-sm mb-1">WhatsApp Helpline</p>
                 <p className="text-brand-secondary text-sm mb-3">Quick solar queries? Chat with our experts on WhatsApp.</p>
                 <a
-                  href="https://wa.me/911351234567"
+                  href="https://wa.me/918881220222"
                   className="inline-flex items-center gap-2 bg-green-deep text-white text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-green-700 transition-colors"
                 >
                   Chat on WhatsApp

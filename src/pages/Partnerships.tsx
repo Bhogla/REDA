@@ -14,7 +14,7 @@ const partnerCategories = [
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
     border: 'border-blue-100',
-    desc: 'We collaborate closely with state and central government agencies to align our programmes with policy frameworks and leverage public funding.',
+    desc: 'Working with authorities to align renewable initiatives with policy. We ensure that our network’s efforts support the state’s broader energy goals.',
     partners: [
       'Uttarakhand Renewable Energy Development Agency (UREDA)',
       'Ministry of New and Renewable Energy (MNRE)',
@@ -30,11 +30,11 @@ const partnerCategories = [
   },
   {
     icon: Leaf,
-    title: 'NGOs & Civil Society',
+    title: 'NGOs & Outreach Partners',
     color: 'text-green-deep',
     bg: 'bg-green-50',
     border: 'border-green-100',
-    desc: 'Our NGO network amplifies our reach into remote communities, enabling last-mile delivery of solar solutions and education programmes.',
+    desc: 'Expanding grassroots impact through partnerships. Our NGO network amplifies our reach into remote communities, enabling last-mile delivery of solar education.',
     partners: [
       'HimalayaClean Foundation',
       'Uttarakhand Mahila Samakhya',
@@ -50,11 +50,11 @@ const partnerCategories = [
   },
   {
     icon: TrendingUp,
-    title: 'Private Sector',
+    title: 'Private Sector Members',
     color: 'text-solar',
     bg: 'bg-orange-50',
     border: 'border-orange-100',
-    desc: 'Industry partnerships enable us to offer competitive pricing, access cutting-edge technology, and create employment opportunities for local youth.',
+    desc: 'Supporting solar adoption across industries. We collaborate with companies within the ecosystem to foster innovation and sustainable business growth.',
     partners: [
       'Tata Power Solar Systems',
       'Luminous Power Technologies',
@@ -63,9 +63,9 @@ const partnerCategories = [
       'Local MSME solar installers network',
     ],
     benefits: [
-      'Preferred pricing for REDA beneficiaries',
+      'Member-exclusive growth opportunities',
       'Technical training and certification support',
-      'CSR co-investment in community projects',
+      'CSR collaboration for collective impact',
     ],
   },
   {
@@ -74,7 +74,7 @@ const partnerCategories = [
     color: 'text-rose-600',
     bg: 'bg-rose-50',
     border: 'border-rose-100',
-    desc: 'Research partnerships help us stay at the forefront of solar technology and ensure evidence-based programme design.',
+    desc: 'Collaborating on research and innovation. We bridge the gap between academic expertise and industry application to stay at the forefront of solar technology.',
     partners: [
       'IIT Roorkee – Energy Department',
       'Graphic Era University, Dehradun',
@@ -133,7 +133,7 @@ export default function Partnerships() {
             Partnerships
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
-            Stronger Together for a Solar Uttarakhand
+            Collaborating for a Stronger Renewable Ecosystem
           </h1>
           <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow">
             REDA's impact is powered by a diverse ecosystem of government agencies, NGOs, corporations, and academic institutions all working toward a common goal.

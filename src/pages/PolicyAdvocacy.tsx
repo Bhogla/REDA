@@ -9,51 +9,51 @@ import AnimateOnScroll from '../components/AnimateOnScroll';
 
 const focusAreas = [
   {
-    icon: Scale,
-    title: 'Regulatory Reform',
+    icon: Search,
+    title: 'Policy Analysis',
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
-    desc: 'Advocating for simplified DISCOM net-metering processes, single-window clearances, and reduced bureaucratic barriers to solar adoption in Uttarakhand.',
+    desc: 'Identifying gaps and opportunities in renewable energy policies to ensure they are practical, impactful, and aligned with industry ground realities.',
     points: [
-      'Simplification of net metering applications',
-      'Standardised state-level solar installation guidelines',
-      'Streamlined subsidy disbursement timelines',
+      'Independent assessment of current solar policies',
+      'Identification of procedural bottlenecks',
+      'Data-driven policy recommendations',
     ],
   },
   {
-    icon: TrendingUp,
-    title: 'Solar Finance Policy',
+    icon: Megaphone,
+    title: 'Advocacy',
     color: 'text-green-deep',
     bg: 'bg-green-50',
-    desc: 'Promoting affordable solar financing through NABARD, co-op banks, and microfinance institutions — making solar accessible for every income bracket.',
+    desc: 'Engaging with policymakers to support solar growth and advocating for a simplified, supportive regulatory environment for renewable energy stakeholders.',
     points: [
-      'Low-interest solar loans for rural households',
-      'NBFC onboarding for solar lease/EMI models',
-      'Carbon credit monetisation for community projects',
+      'Representing member interests in state committees',
+      'Unified voice for industry-level challenges',
+      'Active participation in public consultations',
     ],
   },
   {
-    icon: FileText,
-    title: 'State Solar Policy',
+    icon: Handshake,
+    title: 'Collaboration',
     color: 'text-solar',
     bg: 'bg-orange-50',
-    desc: 'Contributing to the design and revision of Uttarakhand\'s State Solar Policy — ensuring it reflects ground realities and community needs.',
+    desc: 'Working with government bodies to align initiatives. We act as a collaborative partner to various state agencies to drive collective energy goals.',
     points: [
-      'Representation on state renewable energy committees',
-      'Submission of position papers to state legislature',
-      'Stakeholder consultations for policy drafting',
+      'Joint initiatives with UREDA and state departments',
+      'Coordination for large-scale awareness programmes',
+      'Aligning industry innovations with state plans',
     ],
   },
   {
     icon: Globe,
-    title: 'National Advocacy',
+    title: 'National Outreach',
     color: 'text-rose-600',
     bg: 'bg-rose-50',
-    desc: 'Representing Uttarakhand\'s unique mountain context at national platforms — ensuring hill state challenges are reflected in national solar policies.',
+    desc: 'Representing Uttarakhand’s unique mountain context at national platforms — ensuring hill state challenges are reflected in national solar policies.',
     points: [
       'Participation in MNRE consultations',
-      'Representation at national renewable energy conferences',
-      'Coalition building with hill state NGOs',
+      'Representation at national conferences',
+      'Knowledge sharing with other hill states',
     ],
   },
 ];
@@ -121,10 +121,13 @@ export default function PolicyAdvocacy() {
             Policy & Advocacy
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
-            Shaping a Solar-Friendly Policy Landscape
+            Shaping Policies for a Sustainable Future
           </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow mb-6">
             REDA works alongside policymakers, regulators, and civil society to create an environment where solar energy can thrive — for the benefit of every Uttarakhand citizen.
+          </p>
+          <p className="text-white/95 font-semibold text-lg hero-text-shadow italic">
+            "REDA acts as a bridge between industry and government."
           </p>
         </div>
       </section>
