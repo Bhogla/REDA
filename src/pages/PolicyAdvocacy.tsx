@@ -1,6 +1,6 @@
 import {
   Search, Megaphone, Handshake, Globe, CheckCircle, ArrowRight,
-  FileText, Users, BarChart
+  FileText, Users, BarChart, Newspaper
 } from 'lucide-react';
 import { useNavigation } from '../context/NavigationContext';
 import Button from '../components/Button';
