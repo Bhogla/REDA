@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigation, PageId } from '../context/NavigationContext';
 import Button from './Button';
-import logoImage from '../images/Logo.png';
+import logoImage from '../images/logo.png';
 
 const navLinks: { label: string; page: PageId }[] = [
   { label: 'Home', page: 'home' },
