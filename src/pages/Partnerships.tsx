@@ -166,16 +166,14 @@ export default function Partnerships() {
                     <p className="text-xs font-bold uppercase tracking-widest text-brand-secondary/60">
                       Our Network Includes
                     </p>
-                    <div className="grid grid-cols-1 gap-3">
-                      {partners.map((p) => (
-                        <div key={p} className="flex items-start gap-3 group">
-                          <div className={`w-5 h-5 rounded-full ${bg} flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform`}>
-                            <CheckCircle className={`w-3.5 h-3.5 ${color}`} />
-                          </div>
-                          <span className="text-sm md:text-base text-brand-secondary font-medium">{p}</span>
-                        </div>
+                    <ul className="space-y-2 mt-4">
+                      {partners.map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 text-brand-secondary">
+                          <span className="text-green-600 font-bold">✔</span>
+                          <span className="text-sm md:text-base font-medium">{item}</span>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
 
