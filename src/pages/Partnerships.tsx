@@ -13,6 +13,7 @@ const partnerCategories = [
     title: 'Government Bodies',
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
+    dot: 'bg-blue-trust',
     border: 'border-blue-100',
     desc: 'Working with authorities to align renewable initiatives with policy. We ensure that our network’s efforts support the state’s broader energy goals.',
     partners: [
@@ -33,6 +34,7 @@ const partnerCategories = [
     title: 'NGOs & Outreach Partners',
     color: 'text-green-deep',
     bg: 'bg-green-50',
+    dot: 'bg-green-deep',
     border: 'border-green-100',
     desc: 'Expanding grassroots impact through partnerships. Our NGO network amplifies our reach into remote communities, enabling last-mile delivery of solar education.',
     partners: [
@@ -53,6 +55,7 @@ const partnerCategories = [
     title: 'Private Sector Members',
     color: 'text-solar',
     bg: 'bg-orange-50',
+    dot: 'bg-solar',
     border: 'border-orange-100',
     desc: 'Supporting solar adoption across industries. We collaborate with companies within the ecosystem to foster innovation and sustainable business growth.',
     partners: [
@@ -73,6 +76,7 @@ const partnerCategories = [
     title: 'Academic Institutions',
     color: 'text-rose-600',
     bg: 'bg-rose-50',
+    dot: 'bg-rose-600',
     border: 'border-rose-100',
     desc: 'Collaborating on research and innovation. We bridge the gap between academic expertise and industry application to stay at the forefront of solar technology.',
     partners: [
@@ -144,7 +148,7 @@ export default function Partnerships() {
       {/* Categories */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          {partnerCategories.map(({ icon: Icon, title, color, bg, desc, partners, benefits }, idx) => (
+          {partnerCategories.map(({ icon: Icon, title, color, bg, dot, desc, partners, benefits }, idx) => (
             <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}>
               <div
                 className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white rounded-3xl p-8 md:p-12 shadow-card border border-gray-100"
@@ -188,7 +192,7 @@ export default function Partnerships() {
                     <ul className="space-y-5">
                       {benefits.map((b) => (
                         <li key={b} className="flex items-start gap-4">
-                          <div className={`w-2 h-2 rounded-full ${color.replace('text-', 'bg-')} mt-2 shrink-0`} />
+                          <div className={`w-2 h-2 rounded-full ${dot} mt-2 shrink-0`} />
                           <span className="text-brand-primary font-bold text-base leading-tight">
                             {b}
                           </span>
