@@ -37,12 +37,12 @@ const contactInfo = [
   },
 ];
 
-const inquiryTypes = [
-  'Solar Consultation',
-  'Partnership Inquiry',
-  'Volunteer / Internship',
-  'Policy & Advocacy',
-  'Media & Press',
+const enquiryTypes = [
+  'Solar Installation',
+  'Consultation',
+  'Government Scheme',
+  'AMC / Maintenance',
+  'Partnership',
   'Other',
 ];
 
@@ -50,9 +50,9 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
-  inquiryType: string;
-  subject: string;
+  enquiry_type: string;
   message: string;
+  subsidy_interest: boolean;
 }
 
 export default function Contact() {
@@ -60,22 +60,80 @@ export default function Contact() {
     name: '',
     email: '',
     phone: '',
-    inquiryType: '',
-    subject: '',
+    enquiry_type: '',
     message: '',
+    subsidy_interest: false,
   });
+  const [errors, setErrors] = useState<Partial<FormData>>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const validateForm = (): boolean => {
+    const newErrors: Partial<FormData> = {};
+    
+    if (!form.name.trim()) {
+      newErrors.name = 'Full Name is required';
+    }
+    
+    if (!form.email.trim()) {
+      newErrors.email = 'Email Address is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    if (!form.phone.trim()) {
+      newErrors.phone = 'Phone Number is required';
+    } else if (!/^\d{10}$/.test(form.phone.replace(/\s/g, ''))) {
+      newErrors.phone = 'Please enter a valid 10-digit phone number';
+    }
+    
+    if (!form.enquiry_type) {
+      newErrors.enquiry_type = 'Please select an enquiry type';
+    }
+    
+    if (!form.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value, type } = e.target;
+    if (type === 'checkbox') {
+      setForm((prev) => ({ ...prev, [name]: (e.target as HTMLInputElement).checked }));
+    } else {
+      setForm((prev) => ({ ...prev, [name]: value }));
+    }
+    if (errors[name as keyof FormData]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setForm((prev) => ({ ...prev, phone: value }));
+    if (errors.phone) {
+      setErrors((prev) => ({ ...prev, phone: undefined }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateForm()) return;
     setLoading(true);
+    const payload = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      enquiry_type: form.enquiry_type,
+      message: form.message,
+      subsidy_interest: form.subsidy_interest,
+    };
+    console.log('Submitting enquiry:', payload);
     await new Promise((r) => setTimeout(r, 1000));
     setLoading(false);
     setSubmitted(true);
@@ -160,7 +218,7 @@ export default function Contact() {
                     </p>
                     <button
                       type="button"
-                      onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', inquiryType: '', subject: '', message: '' }); }}
+                      onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', enquiry_type: '', message: '', subsidy_interest: false }); }}
                       className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-solar hover:text-orange-600 transition-colors"
                     >
                       Send Another Message
@@ -185,8 +243,9 @@ export default function Contact() {
                           value={form.name}
                           onChange={handleChange}
                           placeholder="Your full name"
-                          className={inputClass}
+                          className={`${inputClass} ${errors.name ? 'border-red-500 focus:ring-red-500/40 focus:border-red-500' : ''}`}
                         />
+                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                       </div>
                       <div>
                         <label className="block text-xs font-semibold text-brand-secondary uppercase tracking-wider mb-2">
@@ -199,57 +258,60 @@ export default function Contact() {
                           value={form.email}
                           onChange={handleChange}
                           placeholder="you@example.com"
-                          className={inputClass}
+                          className={`${inputClass} ${errors.email ? 'border-red-500 focus:ring-red-500/40 focus:border-red-500' : ''}`}
                         />
+                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                       </div>
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-semibold text-brand-secondary uppercase tracking-wider mb-2">
-                          Phone Number
+                          Phone Number *
                         </label>
                         <input
                           type="tel"
                           name="phone"
+                          required
                           value={form.phone}
-                          onChange={handleChange}
-                          placeholder="+91 98765 43210"
-                          className={inputClass}
+                          onChange={handlePhoneChange}
+                          placeholder="9876543210"
+                          className={`${inputClass} ${errors.phone ? 'border-red-500 focus:ring-red-500/40 focus:border-red-500' : ''}`}
                         />
+                        {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                       </div>
                       <div>
                         <label className="block text-xs font-semibold text-brand-secondary uppercase tracking-wider mb-2">
-                          Inquiry Type *
+                          Enquiry Type *
                         </label>
                         <select
-                          name="inquiryType"
+                          name="enquiry_type"
                           required
-                          value={form.inquiryType}
+                          value={form.enquiry_type}
                           onChange={handleChange}
-                          className={inputClass}
+                          className={`${inputClass} ${errors.enquiry_type ? 'border-red-500 focus:ring-red-500/40 focus:border-red-500' : ''}`}
                         >
                           <option value="">Select a type</option>
-                          {inquiryTypes.map((t) => (
+                          {enquiryTypes.map((t) => (
                             <option key={t} value={t}>{t}</option>
                           ))}
                         </select>
+                        {errors.enquiry_type && <p className="text-red-500 text-xs mt-1">{errors.enquiry_type}</p>}
                       </div>
                     </div>
 
-                    <div>
-                      <label className="block text-xs font-semibold text-brand-secondary uppercase tracking-wider mb-2">
-                        Subject *
-                      </label>
+                    <div className="flex items-center gap-2">
                       <input
-                        type="text"
-                        name="subject"
-                        required
-                        value={form.subject}
+                        type="checkbox"
+                        name="subsidy_interest"
+                        id="subsidy_interest"
+                        checked={form.subsidy_interest}
                         onChange={handleChange}
-                        placeholder="Brief subject of your inquiry"
-                        className={inputClass}
+                        className="w-4 h-4 text-solar border-gray-300 rounded focus:ring-solar"
                       />
+                      <label htmlFor="subsidy_interest" className="text-sm text-brand-secondary">
+                        I am interested in government subsidy
+                      </label>
                     </div>
 
                     <div>
@@ -259,19 +321,29 @@ export default function Contact() {
                       <textarea
                         name="message"
                         required
-                        rows={5}
+                        rows={6}
                         value={form.message}
                         onChange={handleChange}
-                        placeholder="Tell us more about your query or how we can help you..."
-                        className={`${inputClass} resize-none`}
+                        placeholder="Briefly describe your requirement or question..."
+                        className={`${inputClass} resize-none ${errors.message ? 'border-red-500 focus:ring-red-500/40 focus:border-red-500' : ''}`}
                       />
+                      {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                     </div>
 
                     <Button type="submit" fullWidth size="lg" disabled={loading}>
-                      {loading ? 'Sending...' : (
-                        <>Send Message <Send className="w-4 h-4 ml-2" /></>
+                      {loading ? 'Submitting...' : (
+                        <>Submit Enquiry <Send className="w-4 h-4 ml-2" /></>
                       )}
                     </Button>
+                    <p className="text-xs text-brand-secondary text-center">
+                      Our team will get back to you within 24 hours
+                    </p>
+                    <p className="text-xs text-brand-secondary text-center">
+                      Your information is safe and will not be shared
+                    </p>
+                    <p className="text-xs text-brand-secondary text-center">
+                      Our team will get back to you within 24 hours
+                    </p>
                   </form>
                 )}
               </div>
