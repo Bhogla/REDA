@@ -1,13 +1,24 @@
+import { useRef, useState } from 'react';
 import {
   Sun, Wind, Zap, Users, Building2, Leaf, ArrowRight, CheckCircle,
   FileText, ChevronRight, TrendingUp, Globe, Award
 } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-coverflow';
 import { useNavigation } from '../context/NavigationContext';
 import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import homeImage from '../assets/home1.webp';
 import aboutImage from '../assets/home2.webp';
+import banner1 from '../assets/banner1.webp';
+import banner2 from '../assets/banner2.webp';
+import banner3 from '../assets/banner3.webp';
 
 const stats = [
   { value: '500+', label: 'Solar Installations', icon: Sun },
@@ -75,8 +86,34 @@ const benefits = [
   'Transparent processes and accountable outcomes',
 ];
 
+const schemes = [
+  {
+    tag: 'Government Scheme',
+    title: 'PM Surya Ghar Muft Bijli Yojana',
+    desc: 'Free electricity for eligible households with solar panel installation and grid connectivity.',
+    cta: 'Get Consultation',
+    image: banner1,
+  },
+  {
+    tag: 'Government Scheme',
+    title: 'MSSY Scheme',
+    desc: 'Mukhya Mantri Solar Yojana - State-backed subsidy for residential solar installations in Uttarakhand.',
+    cta: 'Learn More',
+    image: banner2,
+  },
+  {
+    tag: 'Solar Solution',
+    title: 'Commercial Solar Solutions',
+    desc: 'Customized solar systems for businesses, industries, and commercial buildings with attractive ROI.',
+    cta: 'Get Quote',
+    image: banner3,
+  },
+];
+
 export default function Home() {
   const { navigate } = useNavigation();
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <div className="bg-bg-warm">
@@ -194,8 +231,85 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Schemes Gallery (Coverflow) */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mb-3">
+              Our Key Initiatives & Schemes
+            </h2>
+            <p className="text-brand-secondary text-lg max-w-2xl mx-auto">
+              Explore government-backed programs and solar opportunities in Uttarakhand
+            </p>
+          </div>
+          <div className="relative">
+            <Swiper
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+              effect={'coverflow'}
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView={'auto'}
+              loop={true}
+              speed={600}
+              autoplay={{ delay: 5000, disableOnInteraction: false }}
+              coverflowEffect={{
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2.5,
+                slideShadows: false,
+              }}
+              modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
+              className="gallery-swiper"
+              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            >
+              {[...schemes, ...schemes].map((scheme, i) => (
+                <SwiperSlide key={i} className="gallery-slide">
+                  <div className="w-full h-full p-2">
+                    <img
+                      src={scheme.image}
+                      alt={scheme.title}
+                      className="gallery-image"
+                    />
+                    <div className="mt-3 md:mt-6 text-center">
+                      <h3 className="text-sm md:text-lg font-bold text-brand-primary line-clamp-1">
+                        {scheme.title}
+                      </h3>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            {/* Custom Navigation Below */}
+            <div className="flex items-center justify-center gap-8 mt-4">
+              <button 
+                className="gallery-nav-btn"
+                onClick={() => swiperRef.current?.slidePrev()}
+                aria-label="Previous slide"
+              >
+                <ArrowRight className="w-6 h-6 rotate-180" />
+              </button>
+              <div className="flex gap-2">
+                {schemes.map((_, i) => (
+                  <div key={i} className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeIndex % schemes.length ? 'bg-solar w-6' : 'bg-gray-200'}`} />
+                ))}
+              </div>
+              <button 
+                className="gallery-nav-btn"
+                onClick={() => swiperRef.current?.slideNext()}
+                aria-label="Next slide"
+              >
+                <ArrowRight className="w-6 h-6" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
