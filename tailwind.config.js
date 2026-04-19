@@ -14,6 +14,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
         card: '0 2px 16px rgba(86, 47, 0, 0.08)',

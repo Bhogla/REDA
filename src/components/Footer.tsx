@@ -24,12 +24,12 @@ export default function Footer() {
   const { navigate } = useNavigation();
 
   return (
-    <footer className="bg-green-deep text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-10 md:gap-8 lg:gap-10 mb-16 items-start">
-          <div className="lg:col-span-1">
-            <button onClick={() => navigate('home')} className="inline-block mb-4 transition-opacity hover:opacity-80">
-              <div className="bg-white rounded-xl p-2 inline-flex items-center justify-center">
+    <footer className="bg-[#FAFDF7] text-neutral-900 flex flex-col">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-12 md:gap-10 lg:gap-8 items-start">
+          <div className="lg:col-span-4 lg:pr-8 flex flex-col">
+            <button onClick={() => navigate('home')} className="inline-block mb-5 self-start transition-opacity hover:opacity-70">
+              <div className="bg-white rounded-xl p-2.5 inline-flex items-center justify-center shadow-sm">
                 <img 
                   src={logoImage} 
                   alt="REDA – Renewable Energy Development Association" 
@@ -37,15 +37,15 @@ export default function Footer() {
                 />
               </div>
             </button>
-            <p className="text-white/70 text-sm leading-relaxed mb-6">
+            <p className="text-neutral-800 text-sm leading-relaxed mb-6 max-w-xs font-medium">
               Renewable Energy Development Association promoting solar energy adoption and sustainable development across Uttarakhand, India.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-2.5">
               {[Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
-                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-solar flex items-center justify-center transition-colors duration-200"
+                  className="w-9 h-9 rounded-lg bg-neutral-900/5 hover:bg-orange-500 text-neutral-900 hover:text-white flex items-center justify-center transition-all duration-200"
                   aria-label="Social link"
                 >
                   <Icon className="w-4 h-4" />
@@ -54,8 +54,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col">
-            <h3 className="font-bold text-white text-sm uppercase tracking-widest mb-6">
+          <div className="lg:col-span-2 flex flex-col">
+            <h3 className="font-bold text-neutral-900 text-sm uppercase tracking-widest mb-6">
               Explore
             </h3>
             <ul className="space-y-3.5">
@@ -63,7 +63,7 @@ export default function Footer() {
                 <li key={page}>
                   <button
                     onClick={() => navigate(page)}
-                    className="text-white/80 hover:text-solar hover:translate-x-1.5 text-[15px] transition-all duration-200 block text-left"
+                    className="text-neutral-800 hover:text-orange-500 hover:translate-x-1 text-[15px] transition-all duration-200 block text-left font-medium"
                   >
                     {label}
                   </button>
@@ -72,8 +72,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="flex flex-col">
-            <h3 className="font-bold text-white text-sm uppercase tracking-widest mb-6">
+          <div className="lg:col-span-3 flex flex-col">
+            <h3 className="font-bold text-neutral-900 text-sm uppercase tracking-widest mb-6">
               Useful Government Links
             </h3>
             <ul className="space-y-3.5">
@@ -83,7 +83,7 @@ export default function Footer() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/80 hover:text-solar hover:translate-x-1.5 text-[15px] transition-all duration-200 flex items-center gap-2 group"
+                    className="text-neutral-800 hover:text-orange-500 hover:translate-x-1 text-[15px] transition-all duration-200 flex items-center gap-2 group font-medium"
                   >
                     <span>{label}</span>
                     <ExternalLink className="w-3.5 h-3.5 opacity-0 -ml-1 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
@@ -93,34 +93,36 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="flex flex-col">
-            <h3 className="font-bold text-white text-sm uppercase tracking-widest mb-6">
+          <div className="lg:col-span-3 flex flex-col">
+            <h3 className="font-bold text-neutral-900 text-sm uppercase tracking-widest mb-6">
               Contact
             </h3>
-            <ul className="space-y-6">
-              <li className="flex items-start gap-4 text-white/80 text-sm">
-                <MapPin className="w-3.5 h-3.5 text-solar mt-1 shrink-0" />
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3.5 text-neutral-800 text-sm">
+                <MapPin className="w-4 h-4 text-neutral-900 mt-0.5 shrink-0" />
                 <div>
-                  <p className="font-bold text-white/90 mb-1.5">Registered Office</p>
-                  <span>Lakshya Enclave Block C, Banjarawala,<br />Dehradun – 248001 (Uttarakhand)</span>
+                  <p className="font-bold text-neutral-900 mb-1">Registered Office</p>
+                  <span className="leading-snug font-medium">Lakshya Enclave Block C, Banjarawala, Dehradun – 248001 (Uttarakhand)</span>
                 </div>
               </li>
-              <li className="flex items-start gap-4 text-white/80 text-sm">
-                <Phone className="w-3.5 h-3.5 text-solar mt-1 shrink-0" />
+              <li className="flex items-start gap-3.5 text-neutral-800 text-sm">
+                <Phone className="w-4 h-4 text-neutral-900 mt-0.5 shrink-0" />
                 <div>
-                  <p className="font-bold text-white/90 mb-1.5">Mobile</p>
-                  <div className="flex flex-col gap-1.5">
-                    <a href="tel:+918881220222" className="hover:text-solar transition-colors">888 1220 222</a>
-                    <a href="tel:+919997015895" className="hover:text-solar transition-colors">999 7015 895</a>
-                    <a href="tel:+917830144244" className="hover:text-solar transition-colors">783 0144 244</a>
+                  <p className="font-bold text-neutral-900 mb-1">Mobile</p>
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-medium leading-snug">
+                    <a href="tel:+918881220222" className="hover:text-orange-500 transition-colors whitespace-nowrap">888 1220 222</a>
+                    <span className="text-neutral-300">|</span>
+                    <a href="tel:+919997015895" className="hover:text-orange-500 transition-colors whitespace-nowrap">999 7015 895</a>
+                    <span className="text-neutral-300">|</span>
+                    <a href="tel:+917830144244" className="hover:text-orange-500 transition-colors whitespace-nowrap">783 0144 244</a>
                   </div>
                 </div>
               </li>
-              <li className="flex items-start gap-4 text-white/80 text-sm">
-                <Mail className="w-3.5 h-3.5 text-solar mt-1 shrink-0" />
+              <li className="flex items-start gap-3.5 text-neutral-800 text-sm">
+                <Mail className="w-4 h-4 text-neutral-900 mt-0.5 shrink-0" />
                 <div>
-                  <p className="font-bold text-white/90 mb-1.5">Mail ID</p>
-                  <a href="mailto:redauttarakhand@gmail.com" className="hover:text-solar transition-colors break-all">
+                  <p className="font-bold text-neutral-900 mb-1">Mail ID</p>
+                  <a href="mailto:redauttarakhand@gmail.com" className="hover:text-orange-500 transition-colors break-all font-medium leading-snug">
                     redauttarakhand@gmail.com
                   </a>
                 </div>
@@ -128,13 +130,15 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+      </div>
 
-        <div className="border-t border-white/30 pt-8 pb-2">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-            <p className="text-white/60 text-[13px] tracking-wide text-center sm:text-left">
+      <div className="w-full bg-gradient-to-r from-orange-200 via-orange-100 to-orange-300 border-t border-orange-200 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-neutral-900 text-[14px] tracking-wide text-center sm:text-left font-semibold">
               &copy; {new Date().getFullYear()} Renewable Energy Development Association. All rights reserved.
             </p>
-            <p className="text-white/50 text-[12px] tracking-wider uppercase">
+            <p className="text-neutral-900 text-[13px] tracking-wider uppercase font-semibold">
               Registered NGO | Uttarakhand, India
             </p>
           </div>

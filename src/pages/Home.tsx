@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
 import {
   Sun, Wind, Zap, Users, Building2, Leaf, ArrowRight, CheckCircle,
-  FileText, ChevronRight, TrendingUp, Globe, Award
+  FileText, ChevronRight, TrendingUp, Globe, Award, ChevronDown,
+  HelpCircle, BookOpen, Lightbulb, ShieldCheck
 } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
@@ -110,10 +111,69 @@ const schemes = [
   },
 ];
 
+const faqs = [
+  {
+    question: 'What is REDA and what does it do?',
+    answer: 'REDA (Renewable Energy Development Association) is a registered body of solar and renewable energy companies in Uttarakhand. We facilitate collaboration, provide technical support, advocate for favorable policies, and drive solar adoption across the state.',
+  },
+  {
+    question: 'How can I get a solar panel installed through REDA?',
+    answer: 'REDA connects you with verified member installers who handle the entire process — from site assessment and system design to installation and grid connectivity. Contact us for a free consultation to get started.',
+  },
+  {
+    question: 'What government subsidies are available for solar in Uttarakhand?',
+    answer: 'Several schemes are available including PM Surya Ghar Muft Bijli Yojana and the Mukhya Mantri Solar Yojana (MSSY). These can cover a significant portion of installation costs for residential systems. REDA helps you navigate the application process.',
+  },
+  {
+    question: 'Is solar energy viable in hilly terrain like Uttarakhand?',
+    answer: 'Yes! Uttarakhand receives excellent solar irradiance, especially in the mid-hills and valley regions. Modern panels work efficiently even in partially cloudy conditions, and REDA\'s experts design systems optimized for local terrain and climate.',
+  },
+  {
+    question: 'How can my company become a REDA member?',
+    answer: 'Any solar or renewable energy company operating in Uttarakhand can apply for REDA membership. Members gain access to networking, policy advocacy, technical support, and collaborative project opportunities. Reach out via our contact page to apply.',
+  },
+  {
+    question: 'How long does it take to install a solar system?',
+    answer: 'The installation process typically takes 2–5 days depending on the system size and site conditions. Additional time may be required for approvals and net metering.',
+  },
+  {
+    question: 'Will solar panels work during power cuts?',
+    answer: 'Grid-connected solar systems automatically shut down during power cuts for safety. However, adding battery backup can provide power during outages.',
+  },
+  {
+    question: 'What happens during cloudy or rainy days?',
+    answer: 'Solar panels still generate electricity on cloudy days, but at reduced efficiency. Over time, the system balances output across sunny and cloudy periods.',
+  },
+];
+
+const knowledgeCards = [
+  {
+    icon: BookOpen,
+    title: 'Solar Installation Guide',
+    desc: 'Step-by-step guide for homeowners',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Subsidy & Policy Updates',
+    desc: 'Latest government schemes info',
+  },
+  {
+    icon: Lightbulb,
+    title: 'Energy Savings Calculator',
+    desc: 'Estimate your solar savings',
+  },
+  {
+    icon: HelpCircle,
+    title: 'Technical Resources',
+    desc: 'Manuals & best practices',
+  },
+];
+
 export default function Home() {
   const { navigate } = useNavigation();
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <div className="bg-bg-warm">
@@ -172,7 +232,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map(({ value, label, icon: Icon }, i) => (
-              <AnimateOnScroll key={label} variant="fade-up" delay={(Math.min(i + 1, 5)) as 1|2|3|4|5} className="text-center group">
+              <AnimateOnScroll key={label} variant="fade-up" delay={(Math.min(i + 1, 5)) as 1 | 2 | 3 | 4 | 5} className="text-center group">
                 <div className="w-12 h-12 bg-solar/10 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-solar/20 transition-colors">
                   <Icon className="w-6 h-6 text-solar" />
                 </div>
@@ -284,7 +344,7 @@ export default function Home() {
             </Swiper>
             {/* Custom Navigation Below */}
             <div className="flex items-center justify-center gap-8 mt-4">
-              <button 
+              <button
                 className="gallery-nav-btn"
                 onClick={() => swiperRef.current?.slidePrev()}
                 aria-label="Previous slide"
@@ -296,7 +356,7 @@ export default function Home() {
                   <div key={i} className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeIndex % schemes.length ? 'bg-solar w-6' : 'bg-gray-200'}`} />
                 ))}
               </div>
-              <button 
+              <button
                 className="gallery-nav-btn"
                 onClick={() => swiperRef.current?.slideNext()}
                 aria-label="Next slide"
@@ -320,20 +380,20 @@ export default function Home() {
           </AnimateOnScroll>
           <div className="grid md:grid-cols-3 gap-6 mt-4">
             {projects.map(({ icon: Icon, title, desc, color, bg }, i) => (
-              <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(i + 1, 5)) as 1|2|3|4|5}>
-              <div
-                className="bg-white rounded-2xl p-7 border border-gray-100 shadow-card hover:shadow-card-hover transition-all duration-300 group cursor-pointer h-full"
-                onClick={() => navigate('projects')}
-              >
-                <div className={`w-12 h-12 ${bg} rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-200`}>
-                  <Icon className={`w-6 h-6 ${color}`} />
+              <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(i + 1, 5)) as 1 | 2 | 3 | 4 | 5}>
+                <div
+                  className="bg-white rounded-2xl p-7 border border-gray-100 shadow-card hover:shadow-card-hover transition-all duration-300 group cursor-pointer h-full"
+                  onClick={() => navigate('projects')}
+                >
+                  <div className={`w-12 h-12 ${bg} rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-200`}>
+                    <Icon className={`w-6 h-6 ${color}`} />
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-primary mb-3">{title}</h3>
+                  <p className="text-brand-secondary text-sm leading-relaxed mb-5">{desc}</p>
+                  <div className={`flex items-center gap-1 text-sm font-semibold ${color}`}>
+                    Learn more <ChevronRight className="w-4 h-4" />
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-brand-primary mb-3">{title}</h3>
-                <p className="text-brand-secondary text-sm leading-relaxed mb-5">{desc}</p>
-                <div className={`flex items-center gap-1 text-sm font-semibold ${color}`}>
-                  Learn more <ChevronRight className="w-4 h-4" />
-                </div>
-              </div>
               </AnimateOnScroll>
             ))}
           </div>
@@ -357,24 +417,24 @@ export default function Home() {
           </AnimateOnScroll>
           <div className="grid md:grid-cols-3 gap-6 mt-4">
             {initiatives.map(({ icon: Icon, title, desc, tag }, i) => (
-              <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(i + 1, 5)) as 1|2|3|4|5}>
-              <div
-                className="bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 group h-full"
-              >
-                <div className="h-2 bg-gradient-to-r from-green-deep to-blue-trust" />
-                <div className="p-7">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-11 h-11 bg-solar/10 rounded-xl flex items-center justify-center group-hover:bg-solar/20 transition-colors">
-                      <Icon className="w-5 h-5 text-solar" />
+              <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(i + 1, 5)) as 1 | 2 | 3 | 4 | 5}>
+                <div
+                  className="bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 group h-full"
+                >
+                  <div className="h-2 bg-gradient-to-r from-green-deep to-blue-trust" />
+                  <div className="p-7">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-11 h-11 bg-solar/10 rounded-xl flex items-center justify-center group-hover:bg-solar/20 transition-colors">
+                        <Icon className="w-5 h-5 text-solar" />
+                      </div>
+                      <span className="text-xs font-semibold text-green-deep bg-green-50 px-3 py-1 rounded-full">
+                        {tag}
+                      </span>
                     </div>
-                    <span className="text-xs font-semibold text-green-deep bg-green-50 px-3 py-1 rounded-full">
-                      {tag}
-                    </span>
+                    <h3 className="text-lg font-bold text-brand-primary mb-2">{title}</h3>
+                    <p className="text-brand-secondary text-sm leading-relaxed">{desc}</p>
                   </div>
-                  <h3 className="text-lg font-bold text-brand-primary mb-2">{title}</h3>
-                  <p className="text-brand-secondary text-sm leading-relaxed">{desc}</p>
                 </div>
-              </div>
               </AnimateOnScroll>
             ))}
           </div>
@@ -398,16 +458,16 @@ export default function Home() {
           </AnimateOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-4">
             {partners.map(({ label, icon: Icon, desc }, i) => (
-              <AnimateOnScroll key={label} variant="fade-up" delay={(Math.min(i + 1, 5)) as 1|2|3|4|5}>
-              <div
-                className="text-center p-6 bg-bg-warm rounded-2xl border border-gray-100 hover:border-solar/30 hover:shadow-card transition-all duration-200 h-full"
-              >
-                <div className="w-12 h-12 bg-white rounded-xl shadow-card flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-6 h-6 text-green-deep" />
+              <AnimateOnScroll key={label} variant="fade-up" delay={(Math.min(i + 1, 5)) as 1 | 2 | 3 | 4 | 5}>
+                <div
+                  className="text-center p-6 bg-bg-warm rounded-2xl border border-gray-100 hover:border-solar/30 hover:shadow-card transition-all duration-200 h-full"
+                >
+                  <div className="w-12 h-12 bg-white rounded-xl shadow-card flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-6 h-6 text-green-deep" />
+                  </div>
+                  <div className="font-semibold text-brand-primary mb-1">{label}</div>
+                  <div className="text-xs text-brand-secondary">{desc}</div>
                 </div>
-                <div className="font-semibold text-brand-primary mb-1">{label}</div>
-                <div className="text-xs text-brand-secondary">{desc}</div>
-              </div>
               </AnimateOnScroll>
             ))}
           </div>
@@ -419,28 +479,87 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #1B5E20 0%, #1E3A8A 100%)' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* FAQs & Knowledge Hub */}
+      <section className="py-20 bg-bg-warm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll variant="fade-up">
-            <span className="inline-block text-sm font-semibold uppercase tracking-widest text-solar mb-4">
-              Take Action Today
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6 leading-tight">
-              Ready to Switch to Solar Energy?
-            </h2>
-            <p className="text-white/80 text-lg mb-10 leading-relaxed">
-              Whether you're a homeowner, a community leader, or an organisation — REDA is here to guide you every step of the way. Get your free consultation today.
-            </p>
+            <SectionHeader
+              label="FAQs & Knowledge Hub"
+              title="Everything You Need to Know"
+              subtitle="Find answers to common questions and explore resources to help you make informed decisions about solar energy."
+            />
           </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-up" delay={2} className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" onClick={() => navigate('contact')}>
-              Get Free Consultation
-            </Button>
-            <Button size="lg" variant="outline-white" onClick={() => navigate('partnerships')}>
-              Partner With Us
-            </Button>
-          </AnimateOnScroll>
+
+          <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 mt-8 items-start">
+            {/* FAQ Accordion — Left ~58% */}
+            <div className="lg:col-span-7">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-100/80 overflow-hidden">
+                {faqs.map((faq, i) => {
+                  const isOpen = openFaq === i;
+                  return (
+                    <div key={i} className={`border-b border-gray-100/80 last:border-b-0 transition-colors duration-200 ${isOpen ? 'bg-orange-50/30' : ''}`}>
+                      <button
+                        onClick={() => setOpenFaq(isOpen ? null : i)}
+                        className="w-full flex items-center justify-between px-5 py-4 text-left group transition-colors hover:bg-orange-50/20"
+                      >
+                        <span className={`text-[15px] font-semibold pr-4 transition-colors ${isOpen ? 'text-solar' : 'text-brand-primary group-hover:text-solar'
+                          }`}>
+                          {faq.question}
+                        </span>
+                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen ? 'bg-solar text-white rotate-180' : 'bg-gray-100 text-brand-secondary group-hover:bg-solar/10'
+                          }`}>
+                          <ChevronDown className="w-4 h-4" />
+                        </div>
+                      </button>
+                      <div
+                        className="overflow-hidden transition-all duration-300 ease-in-out"
+                        style={{
+                          maxHeight: isOpen ? '200px' : '0px',
+                          opacity: isOpen ? 1 : 0,
+                        }}
+                      >
+                        <p className="px-5 pb-4 text-brand-secondary text-sm leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Knowledge Cards — Right ~42% */}
+            <div className="lg:col-span-5 flex flex-col gap-3.5">
+              {knowledgeCards.map(({ icon: Icon, title, desc }, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-xl p-4 border border-gray-100/80 shadow-sm hover:shadow-card hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 bg-solar/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-solar/20 transition-colors">
+                      <Icon className="w-5 h-5 text-solar" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-sm font-bold text-brand-primary mb-0.5 truncate">{title}</h4>
+                      <p className="text-xs text-brand-secondary">{desc}</p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-solar shrink-0 transition-colors" />
+                  </div>
+                </div>
+              ))}
+
+              {/* Mini CTA — separated */}
+              <div className="bg-gradient-to-br from-green-deep to-blue-trust rounded-xl p-5 text-white mt-2">
+                <h4 className="text-base font-bold mb-1.5">Still have questions?</h4>
+                <p className="text-white/80 text-sm mb-3 leading-relaxed">
+                  Our team is here to help you make the right decision.
+                </p>
+                <Button size="sm" onClick={() => navigate('contact')}>
+                  Get Free Consultation
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
