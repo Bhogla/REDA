@@ -33,7 +33,7 @@ export default function Footer() {
                 <img 
                   src={logoImage} 
                   alt="REDA – Renewable Energy Development Association" 
-                  className="h-8 md:h-10 w-auto object-contain" 
+                  className="h-16 md:h-14 w-auto object-contain" 
                 />
               </div>
             </button>
