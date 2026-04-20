@@ -7,6 +7,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Initiatives from './pages/Initiatives';
 import Partnerships from './pages/Partnerships';
+import GalleryEvents from './pages/GalleryEvents';
 import PolicyAdvocacy from './pages/PolicyAdvocacy';
 import Contact from './pages/Contact';
 
@@ -19,6 +20,7 @@ function PageRouter() {
     projects: <Projects />,
     initiatives: <Initiatives />,
     partnerships: <Partnerships />,
+    gallery: <GalleryEvents />,
     policy: <PolicyAdvocacy />,
     contact: <Contact />,
   };

@@ -6,6 +6,7 @@ export type PageId =
   | 'projects'
   | 'initiatives'
   | 'partnerships'
+  | 'gallery'
   | 'policy'
   | 'contact';
 

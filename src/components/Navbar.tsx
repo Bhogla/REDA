@@ -10,6 +10,7 @@ const navLinks: { label: string; page: PageId }[] = [
   { label: 'Projects', page: 'projects' },
   { label: 'Initiatives', page: 'initiatives' },
   { label: 'Partnerships', page: 'partnerships' },
+  { label: 'Gallery & Events', page: 'gallery' },
   { label: 'Policy & Advocacy', page: 'policy' },
 ];
 
