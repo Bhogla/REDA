@@ -11,11 +11,16 @@ const navLinks: { label: string; page: PageId }[] = [
   { label: 'Initiatives', page: 'initiatives' },
   { label: 'Partnerships', page: 'partnerships' },
   { label: 'Gallery & Events', page: 'gallery' },
+  { label: 'Blog', page: 'blog' },
   { label: 'Policy & Advocacy', page: 'policy' },
 ];
 
 export default function Navbar() {
   const { currentPage, navigate } = useNavigation();
+
+  // Treat blogDetail as blog for nav highlighting
+  const isActive = (page: PageId) =>
+    currentPage === page || (page === 'blog' && currentPage === 'blogDetail');
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -58,7 +63,7 @@ export default function Navbar() {
                 key={page}
                 onClick={() => handleNav(page)}
                 className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 ${
-                  currentPage === page
+                  isActive(page)
                     ? (isSolid ? 'text-green-deep bg-green-50 font-semibold' : 'text-white bg-white/20 font-semibold')
                     : (isSolid ? 'text-brand-secondary hover:text-green-deep hover:bg-gray-50' : 'text-white/90 hover:text-white hover:bg-white/10')
                 }`}
@@ -93,7 +98,7 @@ export default function Navbar() {
                 key={page}
                 onClick={() => handleNav(page)}
                 className={`text-left px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-                  currentPage === page
+                  isActive(page)
                     ? 'text-green-deep bg-green-50 font-semibold'
                     : 'text-brand-secondary hover:text-green-deep hover:bg-gray-50'
                 }`}

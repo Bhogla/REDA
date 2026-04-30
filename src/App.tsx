@@ -8,6 +8,8 @@ import Projects from './pages/Projects';
 import Initiatives from './pages/Initiatives';
 import Partnerships from './pages/Partnerships';
 import GalleryEvents from './pages/GalleryEvents';
+import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
 import PolicyAdvocacy from './pages/PolicyAdvocacy';
 import Contact from './pages/Contact';
 
@@ -21,6 +23,8 @@ function PageRouter() {
     initiatives: <Initiatives />,
     partnerships: <Partnerships />,
     gallery: <GalleryEvents />,
+    blog: <Blog />,
+    blogDetail: <BlogDetail />,
     policy: <PolicyAdvocacy />,
     contact: <Contact />,
   };
