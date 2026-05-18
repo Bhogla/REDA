@@ -408,7 +408,7 @@ export default function Home() {
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
               label="Initiatives"
-              title={<span className="whitespace-nowrap">Building Awareness, One Community at a Time</span>}
+              title={<span className="whitespace-normal md:whitespace-nowrap">Building Awareness, One Community at a Time</span>}
               subtitle="Through education, training, and outreach, we empower citizens across Uttarakhand to embrace renewable energy."
             />
           </AnimateOnScroll>
