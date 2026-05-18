@@ -116,10 +116,7 @@ const faqs = [
     question: 'What is REDA and what does it do?',
     answer: 'REDA (Renewable Energy Development Association) is a registered body of solar and renewable energy companies in Uttarakhand. We facilitate collaboration, provide technical support, advocate for favorable policies, and drive solar adoption across the state.',
   },
-  {
-    question: 'How can I get a solar panel installed through REDA?',
-    answer: 'REDA connects you with verified member installers who handle the entire process — from site assessment and system design to installation and grid connectivity. Contact us for a free consultation to get started.',
-  },
+
   {
     question: 'What government subsidies are available for solar in Uttarakhand?',
     answer: 'Several schemes are available including PM Surya Ghar Muft Bijli Yojana and the Mukhya Mantri Solar Yojana (MSSY). These can cover a significant portion of installation costs for residential systems. REDA helps you navigate the application process.',
@@ -283,7 +280,7 @@ export default function Home() {
                 className="w-full h-full object-cover rounded-xl shadow-card aspect-[4/3]"
               />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-card-hover p-5 border border-gray-100">
-                <div className="text-2xl font-extrabold text-solar mb-1">Est. 2018</div>
+                <div className="text-2xl font-extrabold text-solar mb-1">Est. 2023</div>
                 <div className="text-sm text-brand-secondary">Serving Uttarakhand</div>
               </div>
             </AnimateOnScroll>
@@ -296,7 +293,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mb-3">
-              Our Key Initiatives & Schemes
+              Key Initiatives & Schemes
             </h2>
             <p className="text-brand-secondary text-lg max-w-2xl mx-auto">
               Explore government-backed programs and solar opportunities in Uttarakhand
@@ -411,7 +408,7 @@ export default function Home() {
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
               label="Initiatives"
-              title="Building Awareness, One Community at a Time"
+              title={<span className="whitespace-nowrap">Building Awareness, One Community at a Time</span>}
               subtitle="Through education, training, and outreach, we empower citizens across Uttarakhand to embrace renewable energy."
             />
           </AnimateOnScroll>

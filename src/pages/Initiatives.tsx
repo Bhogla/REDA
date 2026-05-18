@@ -1,5 +1,5 @@
 import {
-  GraduationCap, BookOpen, Megaphone, Users, Sun, Zap,
+  GraduationCap, BookOpen, Megaphone, Zap,
   CheckCircle, ArrowRight, Calendar, MapPin
 } from 'lucide-react';
 import { useNavigation } from '../context/NavigationContext';
@@ -125,27 +125,7 @@ export default function Initiatives() {
         </div>
       </section>
 
-      {/* Impact row */}
-      <section className="py-12 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { icon: GraduationCap, value: '200+', label: 'Schools Reached' },
-              { icon: Users, value: '1,500+', label: 'People Trained' },
-              { icon: Megaphone, value: '50+', label: 'Villages Covered' },
-              { icon: Sun, value: '8', label: 'Districts Active' },
-            ].map(({ icon: Icon, value, label }, idx) => (
-              <AnimateOnScroll key={label} variant="fade-up" delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}>
-                <div className="w-11 h-11 bg-solar/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <Icon className="w-5 h-5 text-solar" />
-                </div>
-                <div className="text-2xl font-extrabold text-brand-primary">{value}</div>
-                <div className="text-sm text-brand-secondary mt-1">{label}</div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Initiative Details */}
       <section className="py-20">

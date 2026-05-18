@@ -24,7 +24,7 @@ const heroStats = [
   { value: '48+', label: 'Events Conducted' },
   { value: '3,200+', label: 'Participants' },
   { value: '12', label: 'Districts Reached' },
-  { value: 'Est. 2018', label: 'Founded' },
+  { value: 'Est. 2023', label: 'Founded' },
 ];
 
 const featuredEvent = {
