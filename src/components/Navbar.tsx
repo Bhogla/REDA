@@ -7,7 +7,7 @@ import logoImage from '../assets/logo.png';
 const navLinks: { label: string; page: PageId }[] = [
   { label: 'Home', page: 'home' },
   { label: 'About', page: 'about' },
-  { label: 'Projects', page: 'projects' },
+  { label: 'Programs', page: 'projects' },
   { label: 'Initiatives', page: 'initiatives' },
   { label: 'Partnerships', page: 'partnerships' },
   { label: 'Gallery & Events', page: 'gallery' },
@@ -76,7 +76,7 @@ export default function Navbar() {
 
           <div className="hidden lg:block">
             <Button size="sm" onClick={() => handleNav('contact')}>
-              Get Consultation
+              Connect With REDA
             </Button>
           </div>
 
@@ -108,7 +108,7 @@ export default function Navbar() {
             ))}
             <div className="pt-2 border-t border-gray-100 mt-2">
               <Button fullWidth onClick={() => handleNav('contact')}>
-                Get Consultation
+                Connect With REDA
               </Button>
             </div>
           </nav>

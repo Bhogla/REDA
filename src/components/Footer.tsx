@@ -39,7 +39,7 @@ export default function Footer() {
               </div>
             </button>
             <p className="text-neutral-800 text-sm leading-relaxed mb-6 max-w-xs font-medium">
-              Renewable Energy Development Association promoting solar energy adoption and sustainable development across Uttarakhand, India.
+              Renewable Energy Development Association promoting renewable energy awareness, sustainability initiatives, stakeholder engagement, and community-focused participation across Uttarakhand, India.
             </p>
             <div className="flex gap-2.5">
               {[Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (

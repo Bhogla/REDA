@@ -22,31 +22,31 @@ import banner2 from '../assets/banner2.webp';
 import banner3 from '../assets/banner3.webp';
 
 const stats = [
-  { value: '500+', label: 'Solar Installations', icon: Sun },
-  { value: '100+', label: 'Communities Served', icon: Users },
-  { value: '2MW+', label: 'Clean Energy Generated', icon: Zap },
-  { value: '12+', label: 'Districts Covered', icon: Globe },
+  { value: '50+', label: 'Awareness Initiatives', icon: Sun },
+  { value: '25+', label: 'Community Outreach Activities', icon: Users },
+  { value: '100+', label: 'Stakeholder Engagement Programs', icon: Zap },
+  { value: '12+', label: 'District Participation', icon: Globe },
 ];
 
 const projects = [
   {
     icon: Sun,
-    title: 'Residential Solar Support',
-    desc: 'Empowering homeowners with guidance on technology selection, subsidies, and connecting with reliable member installers.',
+    title: 'Renewable Energy Awareness',
+    desc: 'Promoting awareness and informed participation in renewable energy adoption through public outreach and educational initiatives.',
     color: 'text-solar',
     bg: 'bg-orange-50',
   },
   {
     icon: Users,
-    title: 'Community Solar Projects',
-    desc: 'Developing shared solar infrastructure to bring clean, collaborative energy solutions to Himalayan villages.',
+    title: 'Stakeholder Engagement',
+    desc: 'Encouraging collaboration and dialogue among stakeholders, institutions, and communities to support sustainable energy development.',
     color: 'text-green-deep',
     bg: 'bg-green-50',
   },
   {
     icon: Wind,
-    title: 'Off-Grid Solutions',
-    desc: 'Designing sustainable standalone energy systems for remote mountain communities with limited grid access.',
+    title: 'Sustainability Initiatives',
+    desc: 'Supporting sustainability-focused activities and awareness programs that contribute towards a cleaner and more responsible future.',
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
   },
@@ -56,35 +56,35 @@ const initiatives = [
   {
     icon: Users,
     title: 'Community Engagement',
-    desc: 'Driving awareness and adoption of solar energy across communities through grassroots outreach and education.',
+    desc: 'Encouraging renewable energy awareness and public participation through outreach activities, discussions, and community-focused initiatives.',
     tag: 'Engagement',
   },
   {
     icon: Award,
-    title: 'Technical Support',
-    desc: 'Enabling member companies with knowledge sharing, problem-solving, and technical capacity building.',
+    title: 'Stakeholder Collaboration',
+    desc: 'Supporting dialogue and collaboration among stakeholders, institutions, and communities to strengthen renewable energy awareness and sustainable development efforts.',
     tag: 'Technical',
   },
   {
     icon: FileText,
-    title: 'Policy Advocacy',
-    desc: 'Working closely with the government and policymakers to create favorable renewable energy policies for Uttarakhand.',
+    title: 'Policy & Awareness Advocacy',
+    desc: 'Promoting awareness and constructive engagement regarding renewable energy policies, sustainability initiatives, and public-interest concerns.',
     tag: 'Advocacy',
   },
 ];
 
 const partners = [
-  { label: 'Government Bodies', icon: Building2, desc: 'UREDA, MNRE, State Govt.' },
-  { label: 'NGO Networks', icon: Leaf, desc: 'Environmental & development NGOs' },
-  { label: 'Private Sector', icon: TrendingUp, desc: 'Solar companies & industries' },
-  { label: 'Academic Institutions', icon: Award, desc: 'IITs, Universities, Research bodies' },
+  { label: 'Government Bodies', icon: Building2, desc: 'Collaborating with public institutions and government organizations to support renewable energy awareness and sustainability initiatives.' },
+  { label: 'NGO Networks', icon: Leaf, desc: 'Working alongside environmental and community-focused organizations to encourage awareness and sustainable development efforts.' },
+  { label: 'Industry Stakeholders', icon: TrendingUp, desc: 'Encouraging collaboration and dialogue among renewable energy stakeholders to support informed and responsible energy practices.' },
+  { label: 'Academic Institutions', icon: Award, desc: 'Partnering with educational and research institutions to promote renewable energy awareness, innovation, and knowledge-sharing initiatives.' },
 ];
 
 const benefits = [
-  'State government–recognised organisation',
-  'Trained field experts across Uttarakhand',
-  'End-to-end project support and handholding',
-  'Transparent processes and accountable outcomes',
+  'Renewable energy awareness initiatives across Uttarakhand',
+  'Stakeholder engagement & collaborative participation',
+  'Sustainability-focused public outreach activities',
+  'Advocacy-driven renewable energy awareness efforts',
 ];
 
 const schemes = [
@@ -114,55 +114,46 @@ const schemes = [
 const faqs = [
   {
     question: 'What is REDA and what does it do?',
-    answer: 'REDA (Renewable Energy Development Association) is a registered body of solar and renewable energy companies in Uttarakhand. We facilitate collaboration, provide technical support, advocate for favorable policies, and drive solar adoption across the state.',
-  },
-
-  {
-    question: 'What government subsidies are available for solar in Uttarakhand?',
-    answer: 'Several schemes are available including PM Surya Ghar Muft Bijli Yojana and the Mukhya Mantri Solar Yojana (MSSY). These can cover a significant portion of installation costs for residential systems. REDA helps you navigate the application process.',
+    answer: 'Renewable Energy Development Association (REDA) is a non-commercial association focused on renewable energy awareness, stakeholder engagement, sustainability initiatives, and public participation across Uttarakhand.',
   },
   {
-    question: 'Is solar energy viable in hilly terrain like Uttarakhand?',
-    answer: 'Yes! Uttarakhand receives excellent solar irradiance, especially in the mid-hills and valley regions. Modern panels work efficiently even in partially cloudy conditions, and REDA\'s experts design systems optimized for local terrain and climate.',
+    question: 'Is REDA a solar installation company?',
+    answer: 'No. REDA is not involved in commercial installation or product sales. The association primarily focuses on awareness, advocacy, stakeholder engagement, and sustainability initiatives.',
   },
   {
-    question: 'How can my company become a REDA member?',
-    answer: 'Any solar or renewable energy company operating in Uttarakhand can apply for REDA membership. Members gain access to networking, policy advocacy, technical support, and collaborative project opportunities. Reach out via our contact page to apply.',
+    question: 'What are REDA’s primary areas of focus?',
+    answer: 'REDA focuses on renewable energy awareness, sustainability advocacy, public engagement, collaborative participation, and community-focused initiatives.',
   },
   {
-    question: 'How long does it take to install a solar system?',
-    answer: 'The installation process typically takes 2–5 days depending on the system size and site conditions. Additional time may be required for approvals and net metering.',
+    question: 'Does REDA support awareness regarding renewable energy policies and schemes?',
+    answer: 'Yes. REDA actively participates in awareness initiatives and public communication regarding renewable energy-related policies, schemes, and sustainability efforts.',
   },
   {
-    question: 'Will solar panels work during power cuts?',
-    answer: 'Grid-connected solar systems automatically shut down during power cuts for safety. However, adding battery backup can provide power during outages.',
-  },
-  {
-    question: 'What happens during cloudy or rainy days?',
-    answer: 'Solar panels still generate electricity on cloudy days, but at reduced efficiency. Over time, the system balances output across sunny and cloudy periods.',
+    question: 'How can organizations or individuals connect with REDA?',
+    answer: 'Institutions, stakeholders, organizations, and individuals interested in renewable energy awareness and sustainability initiatives can connect with REDA for collaboration and participation opportunities.',
   },
 ];
 
 const knowledgeCards = [
   {
     icon: BookOpen,
-    title: 'Solar Installation Guide',
-    desc: 'Step-by-step guide for homeowners',
+    title: 'Renewable Energy Awareness Resources',
+    desc: 'Educational resources and awareness materials for informed renewable energy participation.',
   },
   {
     icon: ShieldCheck,
-    title: 'Subsidy & Policy Updates',
-    desc: 'Latest government schemes info',
+    title: 'Sustainability & Policy Updates',
+    desc: 'Latest awareness initiatives, sustainability programs, and policy-related updates.',
   },
   {
     icon: Lightbulb,
-    title: 'Energy Savings Calculator',
-    desc: 'Estimate your solar savings',
+    title: 'Community Outreach Initiatives',
+    desc: 'Explore public engagement activities and collaborative awareness programs.',
   },
   {
     icon: HelpCircle,
-    title: 'Technical Resources',
-    desc: 'Manuals & best practices',
+    title: 'Knowledge & Best Practices',
+    desc: 'Access awareness-focused guides, sustainability resources, and renewable energy best practices.',
   },
 ];
 
@@ -192,23 +183,21 @@ export default function Home() {
               Based in Uttarakhand, India
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
-              Powering a{' '}
-              <span className="text-solar">Sustainable</span>{' '}
-              Future for Uttarakhand
+              Empowering Uttarakhand Through Renewable Energy <span className="text-solar">Awareness & Advocacy</span>
             </h1>
             <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-6">
-              REDA is a collective of renewable energy companies working together to accelerate solar adoption, solve industry challenges, and strengthen the clean energy ecosystem.
+              Renewable Energy Development Association (REDA) is a non-commercial association dedicated to renewable energy awareness, stakeholder engagement, sustainability initiatives, and public participation across Uttarakhand.
             </p>
             <p className="text-white/90 font-medium mb-10 flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-solar rounded-full"></span>
-              Connecting businesses, communities, and government for real impact.
+              Connecting communities, stakeholders, and institutions for a more sustainable future.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" onClick={() => navigate('contact')}>
-                Join the Network
-              </Button>
-              <Button size="lg" variant="outline-white" onClick={() => navigate('initiatives')}>
+              <Button size="lg" onClick={() => navigate('initiatives')}>
                 Explore Initiatives
+              </Button>
+              <Button size="lg" variant="outline-white" onClick={() => navigate('blog')}>
+                Media & Updates
               </Button>
             </div>
 
@@ -250,27 +239,27 @@ export default function Home() {
                 Who We Are
               </span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary leading-tight mb-6">
-                Dedicated to Renewable Energy Development in Uttarakhand
+                Dedicated to Renewable Energy Awareness & Sustainable Development in Uttarakhand
               </h2>
               <p className="text-brand-secondary text-lg leading-relaxed mb-6">
-                The Renewable Energy Development Association (REDA) is a registered body representing solar and renewable energy companies across Uttarakhand. We provide a collaborative platform where members share knowledge, solve challenges, and work together with policymakers.
+                Renewable Energy Development Association (REDA) is a non-commercial association working towards renewable energy awareness, stakeholder engagement, sustainability initiatives, and public participation across Uttarakhand. REDA provides a collaborative platform that encourages awareness, dialogue, and collective efforts toward a cleaner and more sustainable future.
               </p>
               <div className="grid sm:grid-cols-2 gap-4 mb-8">
                 <div className="bg-green-50 rounded-xl p-5 border border-green-100">
                   <div className="text-lg font-bold text-green-deep mb-2">Our Mission</div>
                   <p className="text-sm text-brand-secondary leading-relaxed">
-                    To accelerate clean energy adoption through a unified industry voice, technical excellence, and community-driven initiatives.
+                    To promote renewable energy awareness, encourage sustainable practices, and support collaborative initiatives that contribute to a cleaner and more informed energy ecosystem.
                   </p>
                 </div>
                 <div className="bg-blue-50 rounded-xl p-5 border border-blue-100">
                   <div className="text-lg font-bold text-blue-trust mb-2">Our Vision</div>
                   <p className="text-sm text-brand-secondary leading-relaxed">
-                    To build a self-reliant Uttarakhand powered by clean, renewable energy where communities generate their own power and reduce dependence on fossil fuels.
+                    To build a more sustainable and energy-aware Uttarakhand where communities actively participate in renewable energy adoption and environmental responsibility.
                   </p>
                 </div>
               </div>
               <Button variant="ghost" onClick={() => navigate('about')}>
-                Learn More About REDA <ArrowRight className="w-4 h-4 ml-2" />
+                Discover REDA <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </AnimateOnScroll>
             <AnimateOnScroll variant="slide-right" as="div" className="relative">
@@ -296,7 +285,7 @@ export default function Home() {
               Key Initiatives & Schemes
             </h2>
             <p className="text-brand-secondary text-lg max-w-2xl mx-auto">
-              Explore government-backed programs and solar opportunities in Uttarakhand
+              Explore renewable energy awareness programs and government-backed sustainability initiatives across Uttarakhand.
             </p>
           </div>
           <div className="relative">
@@ -370,9 +359,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
-              label="What We Do"
-              title="Solar Solutions for Every Need"
-              subtitle="From individual homes to entire communities, we design, install, and support solar energy systems across Uttarakhand."
+              label="WHAT WE DO"
+              title="Driving Renewable Energy Awareness & Community Engagement"
+              subtitle="Supporting renewable energy awareness, stakeholder collaboration, public engagement, and sustainability-focused initiatives across Uttarakhand."
             />
           </AnimateOnScroll>
           <div className="grid md:grid-cols-3 gap-6 mt-4">
@@ -396,7 +385,7 @@ export default function Home() {
           </div>
           <AnimateOnScroll variant="fade-up" className="text-center mt-10">
             <Button variant="ghost" onClick={() => navigate('projects')}>
-              View All Projects <ArrowRight className="w-4 h-4 ml-2" />
+              Explore Initiatives <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </AnimateOnScroll>
         </div>
@@ -407,9 +396,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
-              label="Initiatives"
-              title={<span className="whitespace-normal md:whitespace-nowrap">Building Awareness, One Community at a Time</span>}
-              subtitle="Through education, training, and outreach, we empower citizens across Uttarakhand to embrace renewable energy."
+              label="INITIATIVES"
+              title="Promoting Renewable Energy Awareness Across Communities"
+              subtitle="Through awareness initiatives, stakeholder engagement, public outreach, and collaborative efforts, REDA encourages informed participation in renewable energy and sustainability-focused practices across Uttarakhand."
             />
           </AnimateOnScroll>
           <div className="grid md:grid-cols-3 gap-6 mt-4">
@@ -448,9 +437,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
-              label="Partnerships"
-              title="Collaborating for Greater Impact"
-              subtitle="We work alongside government bodies, NGOs, private companies, and academic institutions to scale solar adoption."
+              label="PARTNERSHIPS"
+              title="Collaborating for Sustainable Energy Awareness & Community Impact"
+              subtitle="REDA collaborates with government bodies, institutions, organizations, and stakeholders to promote renewable energy awareness, sustainability initiatives, and community-focused engagement across Uttarakhand."
             />
           </AnimateOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-4">
@@ -470,7 +459,7 @@ export default function Home() {
           </div>
           <AnimateOnScroll variant="fade-up" className="text-center mt-10">
             <Button variant="ghost" onClick={() => navigate('partnerships')}>
-              View Partnerships <ArrowRight className="w-4 h-4 ml-2" />
+              Explore Collaborations <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </AnimateOnScroll>
         </div>
@@ -547,12 +536,12 @@ export default function Home() {
 
               {/* Mini CTA — separated */}
               <div className="bg-gradient-to-br from-green-deep to-blue-trust rounded-xl p-5 text-white mt-2">
-                <h4 className="text-base font-bold mb-1.5">Still have questions?</h4>
+                <h4 className="text-base font-bold mb-1.5">Still Have Questions?</h4>
                 <p className="text-white/80 text-sm mb-3 leading-relaxed">
-                  Our team is here to help you make the right decision.
+                  Our team is here to help you learn more about renewable energy awareness initiatives, sustainability efforts, and stakeholder engagement activities.
                 </p>
                 <Button size="sm" onClick={() => navigate('contact')}>
-                  Get Free Consultation
+                  Connect With REDA
                 </Button>
               </div>
             </div>
