@@ -177,35 +177,35 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-32 pb-24">
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur text-white text-sm font-semibold px-4 py-2 rounded-full mb-6 border border-white/20">
-              <Sun className="w-4 h-4 text-solar" />
+          <div className="max-w-xl lg:max-w-2xl">
+            <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur text-white text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-5 sm:mb-6 border border-white/20">
+              <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-solar" />
               Based in Uttarakhand, India
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.15] sm:leading-[1.1] tracking-tight mb-5 sm:mb-6">
               Empowering Uttarakhand Through Renewable Energy <span className="text-solar">Awareness & Advocacy</span>
             </h1>
-            <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-6">
+            <p className="text-base sm:text-lg lg:text-xl text-white/90 leading-[1.7] max-w-[540px] lg:max-w-[600px] mb-6 sm:mb-8">
               Renewable Energy Development Association (REDA) is a non-commercial association dedicated to renewable energy awareness, stakeholder engagement, sustainability initiatives, and public participation across Uttarakhand.
             </p>
-            <p className="text-white/90 font-medium mb-10 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-solar rounded-full"></span>
+            <p className="text-sm sm:text-base text-white/90 font-medium mb-8 sm:mb-10 flex items-start sm:items-center gap-2.5">
+              <span className="w-1.5 h-1.5 bg-solar rounded-full shrink-0 mt-1.5 sm:mt-0"></span>
               Connecting communities, stakeholders, and institutions for a more sustainable future.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" onClick={() => navigate('initiatives')}>
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+              <Button onClick={() => navigate('initiatives')}>
                 Explore Initiatives
               </Button>
-              <Button size="lg" variant="outline-white" onClick={() => navigate('blog')}>
+              <Button variant="outline-white" onClick={() => navigate('blog')}>
                 Media & Updates
               </Button>
             </div>
 
-            <div className="mt-12 flex flex-wrap gap-6">
+            <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-5">
               {benefits.map((b) => (
-                <div key={b} className="flex items-center gap-2 text-white/90 text-sm">
-                  <CheckCircle className="w-4 h-4 text-solar shrink-0" />
-                  {b}
+                <div key={b} className="flex items-start sm:items-center gap-2 text-white/90 text-sm font-medium">
+                  <CheckCircle className="w-4 h-4 text-solar shrink-0 mt-0.5 sm:mt-0" />
+                  <span className="leading-snug">{b}</span>
                 </div>
               ))}
             </div>
