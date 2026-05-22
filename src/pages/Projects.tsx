@@ -8,75 +8,78 @@ const projects = [
   {
     id: 'residential',
     icon: Sun,
-    title: 'Residential Solar',
-    tagline: 'Power your home with clean sunshine',
+    title: 'Household Renewable Awareness',
+    tagline: 'POWERING COMMUNITIES THROUGH AWARENESS',
     color: 'text-solar',
     bg: 'bg-orange-50',
     border: 'border-orange-100',
     img: 'https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=800',
-    desc: 'Supporting households in adopting rooftop solar through awareness and ecosystem support. We connect homeowners with certified member installers and facilitate access to government subsidies.',
+    desc: 'Supporting households with awareness, information access, and guidance on renewable energy opportunities and government initiatives through REDA’s member ecosystem.',
     features: [
-      'Guidance on site feasibility and sizing',
-      'System design standards for hill states',
-      'Connection with certified member installers',
-      'Subsidy facilitation (PM Surya Ghar)',
-      'Net metering awareness and coordination',
-      'Network-backed after-sales support',
+      'Renewable energy awareness sessions',
+      'Information on available government initiatives',
+      'Community engagement programs',
+      'Member-led educational outreach',
+      'Understanding rooftop solar opportunities',
+      'Public participation support',
     ],
+    ctaText: 'Learn More',
   },
   {
     id: 'community',
     icon: Users,
-    title: 'Community Solar',
-    tagline: 'Shared power for shared progress',
+    title: 'Community Energy Initiatives',
+    tagline: 'COLLECTIVE PARTICIPATION FOR SHARED IMPACT',
     color: 'text-green-deep',
     bg: 'bg-green-50',
     border: 'border-green-100',
     img: 'https://images.pexels.com/photos/9799712/pexels-photo-9799712.jpeg?auto=compress&cs=tinysrgb&w=800',
-    desc: 'Enabling shared solar initiatives for affordable clean energy access. REDA supports community groups in designing micro-grids and navigating shared metering frameworks.',
+    desc: 'Encouraging community participation and renewable energy awareness through collaborative programs, local engagement, and knowledge-sharing initiatives.',
     features: [
-      'Micro-grid framework development',
-      'Community consensus and mobilization',
-      'Shared metering models for villages',
-      'Training for village-level operators',
-      'Integration with state community energy schemes',
-      'Ecosystem monitoring and reporting',
+      'Community participation initiatives',
+      'Renewable awareness campaigns',
+      'Local capacity building',
+      'Community engagement activities',
+      'Government initiative awareness',
+      'Member collaboration',
     ],
+    ctaText: 'Explore Initiative',
   },
   {
     id: 'offgrid',
     icon: Wind,
-    title: 'Off-Grid Solutions',
-    tagline: 'Energy independence for remote mountains',
+    title: 'Rural & Remote Renewable Outreach',
+    tagline: 'RENEWABLE OUTREACH FOR EVERY COMMUNITY',
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
     border: 'border-blue-100',
     img: 'https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=800',
-    desc: 'Promoting solar-powered solutions in remote areas without grid access. We work with specialized members to deliver reliable power and battery storage to high-altitude settlements.',
+    desc: 'Supporting awareness and accessibility of renewable energy solutions for remote and underserved communities through ecosystem collaboration and local participation.',
     features: [
-      'Custom off-grid package frameworks',
-      'Durable mountain-grade standards',
-      'Solar pumping support for irrigation',
-      'Remote monitoring and IoT integration',
-      'Solar lighting for un-electrified paths',
-      'Emergency solar kits for disaster resilience',
+      'Rural outreach programs',
+      'Renewable awareness drives',
+      'Sustainable energy education',
+      'Community engagement support',
+      'Knowledge-sharing activities',
+      'Inclusive participation initiatives',
     ],
+    ctaText: 'Get Involved',
   },
 ];
 
 const processSteps = [
-  { step: '01', title: 'Consultation', desc: 'Free assessment of your energy needs and site conditions.' },
-  { step: '02', title: 'Design & Quote', desc: 'Custom system design with transparent costing and ROI projections.' },
-  { step: '03', title: 'Approvals', desc: 'We handle DISCOM approvals, permits, and subsidy paperwork.' },
-  { step: '04', title: 'Installation', desc: 'Certified technicians complete installation within committed timelines.' },
-  { step: '05', title: 'Handover', desc: 'Training, documentation, and net metering activation.' },
-  { step: '06', title: 'Support', desc: 'Ongoing monitoring, maintenance, and AMC services.' },
+  { step: '01', title: 'Awareness', desc: 'Educating communities on renewable opportunities' },
+  { step: '02', title: 'Engagement', desc: 'Connecting stakeholders and members' },
+  { step: '03', title: 'Collaboration', desc: 'Supporting collective participation' },
+  { step: '04', title: 'Initiative Support', desc: 'Facilitating community-led efforts' },
+  { step: '05', title: 'Outreach', desc: 'Expanding renewable awareness' },
+  { step: '06', title: 'Long-Term Impact', desc: 'Strengthening sustainable participation' },
 ];
 
 const whyUs = [
-  { icon: ShieldCheck, label: 'Quality Certified', desc: 'All installations meet BIS and MNRE standards.' },
-  { icon: Wrench, label: 'Expert Technicians', desc: '100+ certified solar engineers across the state.' },
-  { icon: BarChart, label: 'Proven ROI', desc: 'Average payback period of 4–6 years.' },
+  { icon: ShieldCheck, label: 'Community Focused', desc: 'Programs designed to encourage inclusive participation and renewable awareness.' },
+  { icon: Wrench, label: 'Member Network', desc: 'Strengthening collaboration across the renewable energy ecosystem.' },
+  { icon: BarChart, label: 'Sustainable Impact', desc: 'Supporting long-term awareness, engagement, and community development.' },
 ];
 
 export default function Projects() {
@@ -96,18 +99,18 @@ export default function Projects() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block text-sm font-semibold uppercase tracking-widest text-solar mb-4">
-            Our Projects
+            OUR PROGRAMS
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
-            Driving Solar Adoption Across Communities
+            Driving Renewable Energy Awareness Across Communities
           </h1>
           <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow mb-8">
-            REDA supports and enables impactful renewable energy initiatives across Uttarakhand.
+            REDA supports and strengthens renewable energy awareness, stakeholder engagement, and collaborative initiatives across Uttarakhand through its member ecosystem and community participation.
           </p>
           <div className="flex justify-center">
             <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/90 text-sm px-4 py-2 rounded-full border border-white/20">
               <CheckCircle className="w-4 h-4 text-solar" />
-              Projects are implemented by member organizations within the REDA network
+              Programs are supported through member collaboration and community-driven participation.
             </span>
           </div>
         </div>
@@ -116,7 +119,7 @@ export default function Projects() {
       {/* Services Detail */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          {projects.map(({ icon: Icon, title, tagline, color, bg, border, img, desc, features }, idx) => (
+          {projects.map(({ icon: Icon, title, tagline, color, bg, border, img, desc, features, ctaText }, idx) => (
             <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}>
             <div
               className={`grid lg:grid-cols-2 gap-12 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
@@ -137,7 +140,7 @@ export default function Projects() {
                   ))}
                 </ul>
                 <Button onClick={() => navigate('contact')}>
-                  Get a Quote <ArrowRight className="w-4 h-4 ml-2" />
+                  {ctaText} <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
               <div className={`relative ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
@@ -158,9 +161,8 @@ export default function Projects() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
-              label="Our Process"
-              title="Simple Steps to Going Solar"
-              subtitle="We handle all the complexity — from paperwork to commissioning. Your only job is to enjoy clean energy."
+              label="OUR APPROACH"
+              title="How REDA Programs Create Impact"
             />
           </AnimateOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
