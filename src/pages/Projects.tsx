@@ -3,6 +3,10 @@ import { useNavigation } from '../context/NavigationContext';
 import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import programHeroImage from '../assets/program.jpg';
+import program1Image from '../assets/program1.jpg';
+import program2Image from '../assets/program2.jpg';
+import program3Image from '../assets/program3.jpg';
 
 const projects = [
   {
@@ -13,7 +17,7 @@ const projects = [
     color: 'text-solar',
     bg: 'bg-orange-50',
     border: 'border-orange-100',
-    img: 'https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=800',
+    img: program1Image,
     desc: 'Supporting households with awareness, information access, and guidance on renewable energy opportunities and government initiatives through REDA’s member ecosystem.',
     features: [
       'Renewable energy awareness sessions',
@@ -33,7 +37,7 @@ const projects = [
     color: 'text-green-deep',
     bg: 'bg-green-50',
     border: 'border-green-100',
-    img: 'https://images.pexels.com/photos/9799712/pexels-photo-9799712.jpeg?auto=compress&cs=tinysrgb&w=800',
+    img: program2Image,
     desc: 'Encouraging community participation and renewable energy awareness through collaborative programs, local engagement, and knowledge-sharing initiatives.',
     features: [
       'Community participation initiatives',
@@ -53,7 +57,7 @@ const projects = [
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
     border: 'border-blue-100',
-    img: 'https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=800',
+    img: program3Image,
     desc: 'Supporting awareness and accessibility of renewable energy solutions for remote and underserved communities through ecosystem collaboration and local participation.',
     features: [
       'Rural outreach programs',
@@ -91,7 +95,7 @@ export default function Projects() {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src={programHeroImage}
             alt="Solar services"
             className="w-full h-full object-cover"
           />
