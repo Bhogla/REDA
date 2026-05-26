@@ -6,88 +6,96 @@ import { useNavigation } from '../context/NavigationContext';
 import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import heroImage from '../assets/initiative.jpg';
+import initiative1Image from '../assets/initiative1.jpg';
+import initiative2Image from '../assets/initiative2.jpg';
+import initiative3Image from '../assets/initiative3.jpg';
 
 const initiatives = [
   {
     icon: BookOpen,
-    title: 'Workshops & Training',
-    tag: 'Training',
+    title: 'Stakeholder Engagement & Capacity Building',
+    tag: 'ENGAGEMENT',
     color: 'text-green-deep',
     bg: 'bg-green-50',
-    img: 'https://images.pexels.com/photos/8923811/pexels-photo-8923811.jpeg?auto=compress&cs=tinysrgb&w=800',
-    summary: 'Conducting skill development programs for solar adoption.',
-    desc: 'Our specialized workshops empower local youth and electricians with the technical skills needed for solar installation and maintenance, creating livelihoods while accelerating clean energy uptake.',
+    img: initiative1Image,
+    summary: 'Fostering stakeholder collaboration and renewable energy awareness.',
+    desc: 'REDA conducts engagement sessions and collaborative initiatives that strengthen awareness, encourage participation, and support knowledge exchange across the renewable ecosystem.',
     highlights: [
-      'Technical skills for local electricians',
-      'Youth empowerment and job readiness',
-      'Hands-on installation experience',
-      'Certified training programs',
-      'Support for women in renewable energy',
+      'Renewable awareness workshops',
+      'Member engagement sessions',
+      'Knowledge-sharing initiatives',
+      'Community participation activities',
+      'Public interaction forums',
+      'Statewide collaborative outreach',
     ],
-    districts: ['All 13 districts covered'],
+    districts: ['Across Uttarakhand'],
+    ctaText: 'Explore Initiative',
   },
   {
     icon: GraduationCap,
-    title: 'School Outreach',
-    tag: 'Education',
+    title: 'Community Awareness & Public Participation',
+    tag: 'COMMUNITY',
     color: 'text-solar',
     bg: 'bg-orange-50',
-    img: 'https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&w=800',
-    summary: 'Educating students about renewable energy and sustainability.',
-    desc: 'Through interactive school sessions, we introduce students to the fundamentals of solar energy and the importance of environmental conservation, fostering a generation of clean energy advocates.',
+    img: initiative2Image,
+    summary: 'Promoting understanding of renewable opportunities and public participation.',
+    desc: 'Through outreach initiatives and local engagement, REDA promotes understanding of renewable opportunities and encourages informed participation.',
     highlights: [
-      'Interactive classroom sessions',
-      'Renewable energy science kits',
-      'Sustainability workshops for teachers',
-      'State-wide solar science fairs',
-      'Environmental awareness awards',
+      'Awareness sessions',
+      'Community interaction programs',
+      'Renewable education activities',
+      'Public engagement initiatives',
+      'Local outreach efforts',
     ],
-    districts: ['Dehradun', 'Haridwar', 'Nainital', 'Chamoli', 'Almora'],
+    districts: ['Across Uttarakhand'],
+    ctaText: 'Learn More',
   },
   {
     icon: Megaphone,
-    title: 'Awareness Campaigns',
-    tag: 'Outreach',
+    title: 'Policy Awareness & Advocacy',
+    tag: 'ADVOCACY',
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
-    img: 'https://images.pexels.com/photos/3810756/pexels-photo-3810756.jpeg?auto=compress&cs=tinysrgb&w=800',
-    summary: 'Promoting solar energy adoption through public initiatives.',
-    desc: 'Our public awareness campaigns simplify solar energy for the general public, using community meetings, radio, and digital media to demonstrate the long-term benefits of clean power for Uttarakhand.',
+    img: initiative3Image,
+    summary: 'Fostering transparent communication and stakeholder coordination.',
+    desc: 'REDA undertakes awareness and engagement initiatives to encourage transparent communication, informed participation, and stakeholder coordination on renewable energy matters.',
     highlights: [
-      'Public community meetings (Gram Sabhas)',
-      'Digital awareness materials',
-      'Informational radio broadcasts',
-      'Multilingual solar adoption guides',
-      'Community-led solar forums',
+      'Stakeholder representation',
+      'Public communication initiatives',
+      'Policy awareness efforts',
+      'Government engagement support',
+      'Renewable participation dialogue',
     ],
-    districts: ['Statewide coverage'],
+    districts: ['Across Uttarakhand'],
+    ctaText: 'Explore Initiative',
   },
 ];
 
 const upcomingEvents = [
   {
-    title: 'Solar Science Fair 2025',
-    date: 'March 15, 2025',
+    title: 'Community Awareness Session',
+    date: 'May 12, 2026',
     location: 'Dehradun',
-    type: 'Education',
+    type: 'Awareness',
   },
   {
-    title: 'Skill Workshop – Batch 24',
-    date: 'April 1–5, 2025',
+    title: 'Stakeholder Interaction',
+    date: 'May 18, 2026',
     location: 'Haldwani',
-    type: 'Training',
+    type: 'Engagement',
   },
   {
-    title: 'Solar Utsav Almora',
-    date: 'April 20, 2025',
+    title: 'Renewable Participation Drive',
+    date: 'May 20, 2026',
     location: 'Almora',
     type: 'Outreach',
   },
   {
-    title: 'Women in Solar Workshop',
-    date: 'May 10, 2025',
+    title: 'Public Engagement Initiative',
+    date: 'May 24, 2026',
     location: 'Uttarkashi',
-    type: 'Training',
+    type: 'Advocacy',
   },
 ];
 
@@ -95,6 +103,12 @@ const tagColors: Record<string, string> = {
   Education: 'bg-orange-50 text-solar',
   Training: 'bg-green-50 text-green-deep',
   Outreach: 'bg-blue-50 text-blue-trust',
+  ENGAGEMENT: 'bg-green-50 text-green-deep',
+  COMMUNITY: 'bg-orange-50 text-solar',
+  ADVOCACY: 'bg-blue-50 text-blue-trust',
+  Awareness: 'bg-orange-50 text-solar',
+  Engagement: 'bg-green-50 text-green-deep',
+  Advocacy: 'bg-blue-50 text-blue-trust',
 };
 
 export default function Initiatives() {
@@ -106,7 +120,7 @@ export default function Initiatives() {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.pexels.com/photos/3810756/pexels-photo-3810756.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src={heroImage}
             alt="Community initiative"
             className="w-full h-full object-cover"
           />
@@ -114,13 +128,13 @@ export default function Initiatives() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block text-sm font-semibold uppercase tracking-widest text-solar mb-4">
-            Our Initiatives
+            OUR INITIATIVES
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
-            Empowering Communities Through Renewable Energy
+            Driving Awareness. Enabling Participation. Creating Impact.
           </h1>
           <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow">
-            Our initiatives go beyond installations — we build knowledge, skills, and community-level momentum for a solar-powered Uttarakhand.
+            REDA initiatives focus on renewable energy awareness, stakeholder engagement, public participation, and collaborative action across Uttarakhand to support sustainable energy development. Building awareness, strengthening participation, and supporting renewable initiatives across communities.
           </p>
         </div>
       </section>
@@ -130,7 +144,7 @@ export default function Initiatives() {
       {/* Initiative Details */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          {initiatives.map(({ icon: Icon, title, tag, color, bg, img, summary, desc, highlights, districts }, idx) => (
+          {initiatives.map(({ icon: Icon, title, tag, color, bg, img, summary, desc, highlights, districts, ctaText }, idx) => (
             <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}>
             <div
               className={`grid lg:grid-cols-2 gap-12 items-center ${idx % 2 === 1 ? '' : ''}`}
@@ -161,7 +175,7 @@ export default function Initiatives() {
                   ))}
                 </div>
                 <Button variant="ghost" onClick={() => navigate('contact')}>
-                  Get Involved <ArrowRight className="w-4 h-4 ml-2" />
+                  {ctaText || 'Get Involved'} <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
               <div className={idx % 2 === 1 ? 'lg:order-1' : ''}>
@@ -182,9 +196,9 @@ export default function Initiatives() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
-              label="Calendar"
-              title="Upcoming Events & Programmes"
-              subtitle="Join us at our upcoming workshops, campaigns, and outreach events across Uttarakhand."
+              label="ACTIVITIES"
+              title="Recent Activities & Community Engagement"
+              subtitle="Explore REDA’s recent awareness initiatives, stakeholder interactions, and renewable engagement activities across Uttarakhand."
             />
           </AnimateOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-4">
@@ -207,7 +221,7 @@ export default function Initiatives() {
           </div>
           <AnimateOnScroll variant="fade-up" className="mt-10 text-center">
             <Button onClick={() => navigate('contact')}>
-              Register for an Event <Zap className="w-4 h-4 ml-2" />
+              View Activities <Zap className="w-4 h-4 ml-2" />
             </Button>
           </AnimateOnScroll>
         </div>
