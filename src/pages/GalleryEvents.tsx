@@ -176,6 +176,7 @@ export default function GalleryEvents() {
     <div style={{ fontFamily: manrope, color: C.slate, background: C.white }}>
       {/* ═══════════════ HERO ═══════════════ */}
       <section
+        className="ge-hero-section"
         style={{
           position: 'relative',
           overflow: 'hidden',
@@ -184,21 +185,27 @@ export default function GalleryEvents() {
         }}
       >
         {/* full hero background image */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          zIndex: 0,
-          backgroundImage: `url(${galleryHeroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center right',
-        }} />
+        <div
+          className="ge-hero-bg"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            zIndex: 0,
+            backgroundImage: `url(${galleryHeroImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center right',
+          }}
+        />
         {/* dark navy overlay (50% opacity) */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          zIndex: 0,
-          background: 'rgba(15, 30, 53, 0.50)',
-        }} />
+        <div
+          className="ge-hero-overlay"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            zIndex: 0,
+            background: 'rgba(15, 30, 53, 0.50)',
+          }}
+        />
         {/* decorative glows */}
         <div style={{
           position: 'absolute', top: '-120px', right: '-80px', width: '500px', height: '500px',
@@ -211,7 +218,7 @@ export default function GalleryEvents() {
           pointerEvents: 'none',
         }} />
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 1 }}>
+        <div className="ge-hero-container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 1 }}>
           <AnimateOnScroll variant="fade-up">
             <span style={{
               display: 'inline-block', fontSize: '12px', fontWeight: 700, letterSpacing: '3px',
@@ -222,16 +229,16 @@ export default function GalleryEvents() {
           </AnimateOnScroll>
 
           <AnimateOnScroll variant="fade-up" delay={1}>
-            <h1 style={{
+            <h1 className="ge-hero-title" style={{
               fontFamily: playfair, fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 800,
               color: C.white, lineHeight: 1.15, marginBottom: '24px', maxWidth: '720px',
             }}>
-              Moments of <span style={{ color: C.amber }}>Awareness</span>, Participation & <span style={{ color: C.amber }}>Community</span> Engagement
+              Moments of <span style={{ color: C.amber }}>Awareness</span>,<br className="md:hidden" /> Participation & <span style={{ color: C.amber }}>Community</span> Engagement
             </h1>
           </AnimateOnScroll>
 
           <AnimateOnScroll variant="fade-up" delay={2}>
-            <p style={{
+            <p className="ge-hero-desc" style={{
               fontSize: '17px', lineHeight: 1.7, color: 'rgba(255,255,255,0.7)',
               maxWidth: '620px', marginBottom: '48px',
             }}>
@@ -240,13 +247,14 @@ export default function GalleryEvents() {
           </AnimateOnScroll>
 
           <AnimateOnScroll variant="fade-up" delay={3}>
-            <div style={{
+            <div className="ge-hero-stats" style={{
               display: 'flex', flexWrap: 'wrap', gap: '0', borderTop: `1px solid rgba(255,255,255,0.15)`,
               paddingTop: '32px', maxWidth: '720px',
             }}>
               {heroStats.map((s, i) => (
                 <div
                   key={s.label}
+                  className="ge-hero-stat-item"
                   style={{
                     flex: '1 1 140px', padding: '0 24px',
                     borderRight: i < heroStats.length - 1 ? '1px solid rgba(255,255,255,0.12)' : 'none',
@@ -563,6 +571,7 @@ export default function GalleryEvents() {
         <div
           ref={lightboxRef}
           onClick={(e) => { if (e.target === lightboxRef.current) closeLightbox(); }}
+          className="ge-modal-overlay"
           style={{
             position: 'fixed', inset: 0, zIndex: 9999,
             background: 'rgba(10,15,30,0.95)',
@@ -588,7 +597,7 @@ export default function GalleryEvents() {
           </button>
 
           {/* image area */}
-          <div style={{ maxWidth: '900px', width: '100%', textAlign: 'center' }}>
+          <div className="ge-modal-content" style={{ maxWidth: '900px', width: '100%', textAlign: 'center' }}>
             <img
               src={visibleItems[lightboxIdx].src}
               alt={visibleItems[lightboxIdx].title}
@@ -608,9 +617,10 @@ export default function GalleryEvents() {
           </div>
 
           {/* navigation */}
-          <div style={{ display: 'flex', gap: '16px', marginTop: '28px' }}>
+          <div className="ge-modal-nav" style={{ display: 'flex', gap: '16px', marginTop: '28px' }}>
             <button
               onClick={prevImage}
+              className="ge-modal-btn ge-modal-btn-prev"
               style={{
                 width: '48px', height: '48px', borderRadius: '50%',
                 background: 'rgba(255,255,255,0.1)', border: 'none',
@@ -624,6 +634,7 @@ export default function GalleryEvents() {
             </button>
             <button
               onClick={nextImage}
+              className="ge-modal-btn ge-modal-btn-next"
               style={{
                 width: '48px', height: '48px', borderRadius: '50%',
                 background: 'rgba(255,255,255,0.1)', border: 'none',
@@ -780,6 +791,117 @@ export default function GalleryEvents() {
         .ge-btn-outline:hover {
           border-color: ${C.navyLight} !important;
           background: ${C.cream} !important;
+        }
+
+        /* Mobile Hero Responsive Style (screens below 768px) */
+        @media (max-width: 767px) {
+          .ge-hero-section {
+            min-height: 95vh !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            padding-top: 80px !important;
+            padding-bottom: 60px !important;
+          }
+          .ge-hero-bg {
+            background-position: right center !important;
+          }
+          .ge-hero-overlay {
+            background: rgba(15, 30, 53, 0.70) !important;
+          }
+          .ge-hero-container {
+            max-width: 85% !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+            text-align: left !important;
+          }
+          .ge-hero-title {
+            font-size: 26px !important;
+            line-height: 1.1 !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
+            margin-bottom: 18px !important;
+          }
+          .ge-hero-desc {
+            font-size: 15px !important;
+            line-height: 1.6 !important;
+            max-width: 100% !important;
+            margin-bottom: 32px !important;
+          }
+          .ge-hero-stats {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 20px !important;
+            border-top: 1px solid rgba(255,255,255,0.15) !important;
+            padding-top: 24px !important;
+            max-width: 100% !important;
+          }
+          .ge-hero-stat-item {
+            border-right: none !important;
+            padding: 0 !important;
+            text-align: center !important;
+          }
+          .ge-hero-stat-item div:first-child {
+            font-size: 22px !important;
+          }
+          .ge-hero-stat-item div:last-child {
+            font-size: 11px !important;
+          }
+        }
+
+        /* Desktop Lightbox/Modal overrides (min-width: 1024px) */
+        @media (min-width: 1024px) {
+          .ge-modal-overlay {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 40px !important;
+          }
+          .ge-modal-content {
+            max-width: 800px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            text-align: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          .ge-modal-content img {
+            max-width: 85vw !important;
+            max-height: 75vh !important;
+            object-fit: contain !important;
+            margin: 0 auto !important;
+          }
+          .ge-modal-nav {
+            position: absolute !important;
+            inset: 0 !important;
+            pointer-events: none !important;
+            display: block !important;
+            margin: 0 !important;
+          }
+          .ge-modal-btn {
+            position: absolute !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            pointer-events: auto !important;
+            width: 56px !important;
+            height: 56px !important;
+            background: rgba(255,255,255,0.08) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          .ge-modal-btn-prev {
+            left: 40px !important;
+          }
+          .ge-modal-btn-next {
+            right: 40px !important;
+          }
+          .ge-modal-btn:hover {
+            background: rgba(255,255,255,0.2) !important;
+          }
         }
 
         /* ── Responsive ── */
