@@ -10,23 +10,24 @@ import AnimateOnScroll from '../components/AnimateOnScroll';
 const partnerCategories = [
   {
     icon: Building2,
-    title: 'Government Bodies',
+    title: 'Institutional & Stakeholder Collaboration',
+    eyebrow: 'INSTITUTIONAL',
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
     dot: 'bg-blue-trust',
     border: 'border-blue-100',
-    desc: 'Working with authorities to align renewable initiatives with policy. We ensure that our network’s efforts support the state’s broader energy goals.',
+    desc: 'REDA engages with institutions and stakeholders to encourage dialogue, awareness, and coordination that supports renewable participation across Uttarakhand.',
     partners: [
-      'Uttarakhand Renewable Energy Development Agency (UREDA)',
-      'Ministry of New and Renewable Energy (MNRE)',
-      'Uttarakhand Government – Department of Energy',
-      'National Bank for Agriculture and Rural Development (NABARD)',
-      'District Administrations across Uttarakhand',
+      'Renewable awareness collaboration',
+      'Information exchange initiatives',
+      'Stakeholder coordination',
+      'Knowledge-sharing engagement',
+      'Public participation support',
     ],
     benefits: [
-      'Access to government subsidies and schemes',
-      'Policy alignment and compliance support',
-      'Joint awareness campaigns and events',
+      'Awareness collaboration',
+      'Stakeholder engagement',
+      'Collaborative outreach initiatives',
     ],
   },
   {
@@ -52,67 +53,69 @@ const partnerCategories = [
   },
   {
     icon: TrendingUp,
-    title: 'Private Sector Members',
+    title: 'Industry & Member Ecosystem',
+    eyebrow: 'INDUSTRY',
     color: 'text-solar',
     bg: 'bg-orange-50',
     dot: 'bg-solar',
     border: 'border-orange-100',
-    desc: 'Supporting solar adoption across industries. We collaborate with companies within the ecosystem to foster innovation and sustainable business growth.',
+    desc: 'Connecting members and industry participants to strengthen collaboration, engagement, and collective growth across the renewable ecosystem.',
     partners: [
-      'Tata Power Solar Systems',
-      'Luminous Power Technologies',
-      'Jakson Group',
-      'Adani Solar',
-      'Local MSME solar installers network',
+      'Member engagement opportunities',
+      'Knowledge exchange',
+      'Collaborative participation',
+      'Industry interaction',
+      'Ecosystem networking',
     ],
     benefits: [
-      'Member-exclusive growth opportunities',
-      'Technical training and certification support',
-      'CSR collaboration for collective impact',
+      'Member networking',
+      'Knowledge collaboration',
+      'Shared opportunities',
     ],
   },
   {
     icon: GraduationCap,
-    title: 'Academic Institutions',
+    title: 'Academic & Knowledge Collaboration',
+    eyebrow: 'KNOWLEDGE',
     color: 'text-rose-600',
     bg: 'bg-rose-50',
     dot: 'bg-rose-600',
     border: 'border-rose-100',
-    desc: 'Collaborating on research and innovation. We bridge the gap between academic expertise and industry application to stay at the forefront of solar technology.',
+    desc: 'Encouraging collaboration through learning, research dialogue, and knowledge exchange to support renewable awareness.',
     partners: [
-      'IIT Roorkee – Energy Department',
-      'Graphic Era University, Dehradun',
-      'Srinagar Garhwal University',
-      'CEPT University',
-      'Uttarakhand Technical University',
+      'Knowledge partnerships',
+      'Learning initiatives',
+      'Academic engagement',
+      'Collaborative discussions',
+      'Awareness support',
     ],
     benefits: [
-      'Joint research and publication',
-      'Internship placements for students',
-      'Technology pilot projects and trials',
+      'Knowledge exchange',
+      'Learning collaboration',
+      'Research dialogue',
     ],
   },
 ];
 
 const partnershipTypes = [
   {
-    title: 'Co-Implementation Partner',
-    desc: 'Co-design and deliver solar projects on the ground with shared resources and accountability.',
+    title: 'Community Partner',
+    desc: 'Support awareness and participation initiatives.',
     icon: Handshake,
   },
   {
-    title: 'CSR Partner',
-    desc: 'Channel your company\'s CSR funds into impactful solar projects with full transparency.',
-    icon: TrendingUp,
-  },
-  {
     title: 'Knowledge Partner',
-    desc: 'Share expertise, research, and technical knowledge to improve our programme quality.',
+    desc: 'Share expertise and strengthen learning.',
     icon: GraduationCap,
   },
   {
-    title: 'Advocacy Partner',
-    desc: 'Join our coalition advocating for stronger solar policies and enabling regulatory frameworks.',
+    title: 'Awareness Partner',
+    desc: 'Expand outreach and engagement activities.',
+    icon: TrendingUp,
+  },
+  {
+    title: 'Collaboration Partner',
+    desc: 'Contribute to ecosystem development.',
     icon: Globe,
   },
 ];
@@ -134,13 +137,13 @@ export default function Partnerships() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block text-sm font-semibold uppercase tracking-widest text-solar mb-4">
-            Partnerships
+            PARTNERSHIPS
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
             Collaborating for a Stronger Renewable Ecosystem
           </h1>
           <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow">
-            REDA's impact is powered by a diverse ecosystem of government agencies, NGOs, corporations, and academic institutions all working toward a common goal.
+            REDA brings together members, institutions, stakeholders, and organisations to strengthen renewable awareness, knowledge-sharing, and sustainable participation across Uttarakhand. Building meaningful collaboration through engagement, participation, and shared renewable goals.
           </p>
         </div>
       </section>
@@ -148,7 +151,7 @@ export default function Partnerships() {
       {/* Categories */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          {partnerCategories.map(({ icon: Icon, title, color, bg, dot, desc, partners, benefits }, idx) => (
+          {partnerCategories.map(({ icon: Icon, title, color, bg, dot, desc, partners, benefits, eyebrow }, idx) => (
             <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}>
               <div
                 className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white rounded-3xl p-8 md:p-12 shadow-card border border-gray-100"
@@ -159,7 +162,14 @@ export default function Partnerships() {
                     <div className={`w-14 h-14 ${bg} rounded-2xl flex items-center justify-center shadow-sm`}>
                       <Icon className={`w-7 h-7 ${color}`} />
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary tracking-tight">{title}</h2>
+                    <div>
+                      {eyebrow && (
+                        <span className={`text-xs font-bold uppercase tracking-[0.25em] ${color} mb-1 block`}>
+                          {eyebrow}
+                        </span>
+                      )}
+                      <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary tracking-tight">{title}</h2>
+                    </div>
                   </div>
                   
                   <p className="text-brand-secondary text-lg leading-relaxed max-w-lg">
@@ -212,9 +222,9 @@ export default function Partnerships() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
-              label="How to Partner"
+              label="HOW TO COLLABORATE"
               title="Ways to Collaborate with REDA"
-              subtitle="We offer flexible partnership models to match your organisation's goals and capacity."
+              subtitle="Explore flexible collaboration opportunities that support awareness, participation, and ecosystem engagement."
             />
           </AnimateOnScroll>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
@@ -238,10 +248,10 @@ export default function Partnerships() {
         <AnimateOnScroll variant="fade-up" className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Handshake className="w-12 h-12 text-solar mx-auto mb-4" />
           <h2 className="text-2xl md:text-3xl font-extrabold text-brand-primary mb-4">
-            Interested in Partnering with REDA?
+            Interested in Collaborating with REDA?
           </h2>
           <p className="text-brand-secondary leading-relaxed mb-8">
-            Whether you're a government body, NGO, corporation, or academic institution, we'd love to explore how we can work together to accelerate solar energy in Uttarakhand.
+            Connect with REDA to explore opportunities for awareness, engagement, and renewable ecosystem collaboration across Uttarakhand.
           </p>
           <Button size="lg" onClick={() => navigate('contact')}>
             Start a Conversation <ArrowRight className="w-4 h-4 ml-2" />

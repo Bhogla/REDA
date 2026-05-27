@@ -1,6 +1,17 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigation } from '../context/NavigationContext';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import galleryHeroImage from '../assets/Gallery/hero.webp';
+import galleryCTAImage from '../assets/Gallery/CTA.webp';
+import gallery1 from '../assets/Gallery/1.webp';
+import gallery2 from '../assets/Gallery/2.webp';
+import gallery3 from '../assets/Gallery/3.webp';
+import gallery4 from '../assets/Gallery/4.webp';
+import gallery5 from '../assets/Gallery/5.webp';
+import gallery6 from '../assets/Gallery/6.webp';
+import gallery7 from '../assets/Gallery/7.webp';
+import gallery8 from '../assets/Gallery/8.webp';
+import gallery9 from '../assets/Gallery/9.webp';
 
 /* ─── Design tokens ─── */
 const C = {
@@ -21,75 +32,78 @@ const manrope  = '"Manrope", "Inter", system-ui, sans-serif';
 
 /* ─── Data ─── */
 const heroStats = [
-  { value: '48+', label: 'Events Conducted' },
-  { value: '3,200+', label: 'Participants' },
-  { value: '12', label: 'Districts Reached' },
-  { value: 'Est. 2023', label: 'Founded' },
+  { value: '✓', label: 'Community Activities' },
+  { value: '✓', label: 'Public Participation' },
+  { value: '✓', label: 'District Outreach' },
+  { value: '✓', label: 'Renewable Network' },
 ];
 
 const featuredEvent = {
-  category: '🌞 Annual Summit',
-  title: 'Uttarakhand Solar Energy Summit 2025',
+  category: 'FEATURED ACTIVITY',
+  title: 'Renewable Awareness & Stakeholder Interaction',
   description:
-    'A flagship two-day summit bringing together government officials, industry leaders, installers, and community representatives to chart the course for Uttarakhand\'s clean energy transition. Panel discussions, live demos, and networking.',
-  date: { day: 28, month: 'June', year: 2025 },
+    'Highlights from REDA’s awareness initiatives, stakeholder engagement, and community participation activities across Uttarakhand.',
+  date: { day: 'Recent', month: 'Activity', year: '' },
   targetDate: new Date('2025-06-28T09:00:00+05:30'),
   meta: [
-    { icon: '📅', text: 'June 28–29, 2025 · 9:00 AM – 5:00 PM' },
-    { icon: '📍', text: 'Forest Research Institute, Dehradun' },
-    { icon: '👥', text: '800+ Expected Attendees' },
+    { icon: '📅', text: 'Recent Activity' },
+    { icon: '📍', text: 'Across Uttarakhand' },
+    { icon: '👥', text: 'Community Engagement' },
   ],
 };
 
 const upcomingEvents = [
   {
     gradient: 'linear-gradient(135deg, #0f1e35, #1a2c4e)',
-    emoji: '🔧',
-    dateLabel: 'Jul 12',
-    category: 'Workshop',
-    title: 'Solar Installation Masterclass',
-    description: 'Hands-on training for certified installers covering rooftop systems and battery integration.',
-    location: 'Haldwani, Nainital',
+    emoji: '📢',
+    dateLabel: 'Active',
+    category: 'Awareness',
+    title: 'Community Awareness Session',
+    description: 'Interactive awareness and public engagement activities supporting renewable participation.',
+    location: 'Across Uttarakhand',
+    ctaText: 'View Activity',
   },
   {
     gradient: 'linear-gradient(135deg, #1a6b6e, #2ab3b8)',
-    emoji: '🏫',
-    dateLabel: 'Aug 5',
-    category: 'Outreach',
-    title: 'Solar Awareness School Drive',
-    description: 'Interactive sessions in 25 schools across Kumaon region on renewable energy basics.',
-    location: 'Almora District',
+    emoji: '🤝',
+    dateLabel: 'Active',
+    category: 'Engagement',
+    title: 'Stakeholder Interaction',
+    description: 'Collaborative discussions and participation initiatives across the renewable ecosystem.',
+    location: 'Across Uttarakhand',
+    ctaText: 'View Activity',
   },
   {
     gradient: 'linear-gradient(135deg, #b5400f, #e8401a)',
-    emoji: '🤝',
-    dateLabel: 'Sep 18',
-    category: 'Community',
-    title: 'Village Solar Adoption Meet',
-    description: 'Community gathering to onboard 15 new villages into the REDA solar network program.',
-    location: 'Chamoli, Garhwal',
+    emoji: '🌍',
+    dateLabel: 'Active',
+    category: 'Outreach',
+    title: 'Public Outreach Activity',
+    description: 'Community-led awareness and engagement initiatives across Uttarakhand.',
+    location: 'Across Uttarakhand',
+    ctaText: 'View Activity',
   },
 ];
 
-const galleryCategories = ['All Photos', 'Solar Summit 2024', 'Workshops', 'Community Drive', 'Installations'];
+const galleryCategories = ['All Photos', 'Awareness', 'Stakeholder Activities', 'Community Outreach', 'Events'];
 
 const galleryItems = [
-  { src: 'https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Solar Summit 2024 – Keynote', category: 'Solar Summit 2024', year: '2024' },
-  { src: 'https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Panel Installation Workshop', category: 'Workshops', year: '2024' },
-  { src: 'https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Community Awareness Drive', category: 'Community Drive', year: '2023' },
-  { src: 'https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Rooftop Installation – Dehradun', category: 'Installations', year: '2024' },
-  { src: 'https://images.pexels.com/photos/3044473/pexels-photo-3044473.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Solar Summit Networking', category: 'Solar Summit 2024', year: '2024' },
-  { src: 'https://images.pexels.com/photos/8853670/pexels-photo-8853670.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Hands-on Training Session', category: 'Workshops', year: '2023' },
-  { src: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Village Clean Energy Meet', category: 'Community Drive', year: '2024' },
-  { src: 'https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Ground-mount Array – Haridwar', category: 'Installations', year: '2023' },
-  { src: 'https://images.pexels.com/photos/3810756/pexels-photo-3810756.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Summit Exhibition Hall', category: 'Solar Summit 2024', year: '2024' },
+  { src: gallery1, title: 'Stakeholder Dialogue Session', category: 'Stakeholder Activities', year: '2024' },
+  { src: gallery2, title: 'Community Outreach Drive', category: 'Community Outreach', year: '2024' },
+  { src: gallery3, title: 'Regional Engagement Forum', category: 'Events', year: '2024' },
+  { src: gallery4, title: 'Public Awareness Initiative', category: 'Awareness', year: '2024' },
+  { src: gallery5, title: 'Renewable Participation Meet', category: 'Community Outreach', year: '2023' },
+  { src: gallery6, title: 'Collaborative Exchange Session', category: 'Events', year: '2024' },
+  { src: gallery7, title: 'Public Engagement Dialogue', category: 'Community Outreach', year: '2024' },
+  { src: gallery8, title: 'Awareness Campaign Meet', category: 'Awareness', year: '2024' },
+  { src: gallery9, title: 'Ecosystem Networking Forum', category: 'Stakeholder Activities', year: '2024' },
 ];
 
 const pastEvents = [
-  { name: 'Solar Summit 2024', location: 'Dehradun', date: 'Dec 2024', attendees: '650+', gradient: 'linear-gradient(135deg, #0f1e35, #1a2c4e)' },
-  { name: 'Green Skills Workshop', location: 'Haldwani', date: 'Oct 2024', attendees: '120+', gradient: 'linear-gradient(135deg, #1a6b6e, #2ab3b8)' },
-  { name: 'Community Solar Drive', location: 'Rishikesh', date: 'Aug 2024', attendees: '300+', gradient: 'linear-gradient(135deg, #b5400f, #e8401a)' },
-  { name: 'Women in Solar Meet', location: 'Uttarkashi', date: 'Jun 2024', attendees: '85+', gradient: 'linear-gradient(135deg, #8b6914, #f5a623)' },
+  { name: 'Awareness Initiative', location: 'Dehradun', gradient: 'linear-gradient(135deg, #0f1e35, #1a2c4e)' },
+  { name: 'Stakeholder Meeting', location: 'Haldwani', gradient: 'linear-gradient(135deg, #1a6b6e, #2ab3b8)' },
+  { name: 'Community Outreach', location: 'Rishikesh', gradient: 'linear-gradient(135deg, #b5400f, #e8401a)' },
+  { name: 'Renewable Participation Event', location: 'Uttarkashi', gradient: 'linear-gradient(135deg, #8b6914, #f5a623)' },
 ];
 
 /* ─── Helpers ─── */
@@ -163,13 +177,28 @@ export default function GalleryEvents() {
       {/* ═══════════════ HERO ═══════════════ */}
       <section
         style={{
-          background: `linear-gradient(135deg, ${C.navy} 0%, ${C.navyLight} 100%)`,
           position: 'relative',
           overflow: 'hidden',
           paddingTop: '140px',
           paddingBottom: '80px',
         }}
       >
+        {/* full hero background image */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          backgroundImage: `url(${galleryHeroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center right',
+        }} />
+        {/* dark navy overlay (50% opacity) */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          background: 'rgba(15, 30, 53, 0.50)',
+        }} />
         {/* decorative glows */}
         <div style={{
           position: 'absolute', top: '-120px', right: '-80px', width: '500px', height: '500px',
@@ -188,7 +217,7 @@ export default function GalleryEvents() {
               display: 'inline-block', fontSize: '12px', fontWeight: 700, letterSpacing: '3px',
               textTransform: 'uppercase' as const, color: C.orange, marginBottom: '20px',
             }}>
-              EVENTS & COMMUNITY GALLERY
+              GALLERY & EVENTS
             </span>
           </AnimateOnScroll>
 
@@ -197,7 +226,7 @@ export default function GalleryEvents() {
               fontFamily: playfair, fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 800,
               color: C.white, lineHeight: 1.15, marginBottom: '24px', maxWidth: '720px',
             }}>
-              Where <span style={{ color: C.amber }}>Solar Energy</span> Meets Community Action
+              Moments of <span style={{ color: C.amber }}>Awareness</span>, Participation & <span style={{ color: C.amber }}>Community</span> Engagement
             </h1>
           </AnimateOnScroll>
 
@@ -206,8 +235,7 @@ export default function GalleryEvents() {
               fontSize: '17px', lineHeight: 1.7, color: 'rgba(255,255,255,0.7)',
               maxWidth: '620px', marginBottom: '48px',
             }}>
-              Join REDA's events, summits, and workshops driving clean energy adoption across Uttarakhand.
-              Explore moments from our growing community.
+              Explore REDA’s initiatives, stakeholder interactions, public outreach activities, and community engagement across Uttarakhand.
             </p>
           </AnimateOnScroll>
 
@@ -283,38 +311,16 @@ export default function GalleryEvents() {
                     fontSize: '11px', fontWeight: 700, padding: '5px 14px', borderRadius: '20px',
                     letterSpacing: '1px', marginBottom: '20px',
                   }}>
-                    ⭐ Featured Event
+                    ⭐ Featured Activity
                   </span>
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontFamily: playfair, fontSize: '64px', fontWeight: 800, color: C.amber, lineHeight: 1 }}>
-                      {featuredEvent.date.day}
+                    <div style={{ fontFamily: playfair, fontSize: '36px', fontWeight: 800, color: C.amber, lineHeight: 1.2 }}>
+                      Recent
                     </div>
-                    <div style={{ fontSize: '16px', color: C.white, fontWeight: 600, marginTop: '4px' }}>
-                      {featuredEvent.date.month} {featuredEvent.date.year}
+                    <div style={{ fontSize: '18px', color: C.white, fontWeight: 600, marginTop: '8px' }}>
+                      Activity
                     </div>
                   </div>
-                </div>
-
-                {/* countdown */}
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  {[
-                    { val: timeLeft.days, lbl: 'Days' },
-                    { val: timeLeft.hours, lbl: 'Hrs' },
-                    { val: timeLeft.minutes, lbl: 'Min' },
-                    { val: timeLeft.seconds, lbl: 'Sec' },
-                  ].map(t => (
-                    <div key={t.lbl} style={{
-                      background: 'rgba(255,255,255,0.08)', borderRadius: '8px',
-                      padding: '8px 10px', textAlign: 'center', minWidth: '50px',
-                    }}>
-                      <div style={{ fontFamily: playfair, fontSize: '22px', fontWeight: 700, color: C.white }}>
-                        {String(t.val).padStart(2, '0')}
-                      </div>
-                      <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase' as const, letterSpacing: '1px' }}>
-                        {t.lbl}
-                      </div>
-                    </div>
-                  ))}
                 </div>
               </div>
 
@@ -355,7 +361,7 @@ export default function GalleryEvents() {
                 {/* buttons */}
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                   <button
-                    onClick={() => navigate('contact')}
+                    onClick={() => document.getElementById('photo-gallery')?.scrollIntoView({ behavior: 'smooth' })}
                     className="ge-btn-primary"
                     style={{
                       background: C.orange, color: C.white, border: 'none', padding: '12px 28px',
@@ -363,17 +369,7 @@ export default function GalleryEvents() {
                       transition: 'all 0.25s ease',
                     }}
                   >
-                    Register Now →
-                  </button>
-                  <button
-                    className="ge-btn-outline"
-                    style={{
-                      background: 'transparent', color: C.navyLight, border: `2px solid ${C.border}`,
-                      padding: '12px 28px', borderRadius: '8px', fontSize: '14px', fontWeight: 700,
-                      cursor: 'pointer', transition: 'all 0.25s ease',
-                    }}
-                  >
-                    Download Agenda
+                    View Gallery
                   </button>
                 </div>
               </div>
@@ -385,8 +381,8 @@ export default function GalleryEvents() {
             display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
             gap: '24px', marginTop: '48px',
           }}>
-            {upcomingEvents.map((ev, idx) => (
-              <AnimateOnScroll key={ev.title} variant="fade-up" delay={Math.min(idx + 1, 5) as 1|2|3|4|5}>
+            {upcomingEvents.map(({ title, description, location, category, dateLabel, emoji, gradient, ctaText }, idx) => (
+              <AnimateOnScroll key={title} variant="fade-up" delay={Math.min(idx + 1, 5) as 1|2|3|4|5}>
                 <div className="ge-event-card" style={{
                   borderRadius: '16px', overflow: 'hidden', background: C.white,
                   border: `1px solid ${C.border}`, transition: 'all 0.3s ease',
@@ -394,7 +390,7 @@ export default function GalleryEvents() {
                 }}>
                   {/* gradient header */}
                   <div style={{
-                    background: ev.gradient, padding: '20px 24px',
+                    background: gradient, padding: '20px 24px',
                     position: 'relative', minHeight: '80px',
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                   }}>
@@ -402,9 +398,9 @@ export default function GalleryEvents() {
                       background: C.amber, color: C.navy, fontSize: '12px', fontWeight: 800,
                       padding: '5px 12px', borderRadius: '6px',
                     }}>
-                      {ev.dateLabel}
+                      {dateLabel}
                     </span>
-                    <span style={{ fontSize: '28px' }}>{ev.emoji}</span>
+                    <span style={{ fontSize: '28px' }}>{emoji}</span>
                   </div>
 
                   {/* body */}
@@ -414,16 +410,16 @@ export default function GalleryEvents() {
                       background: `${C.teal}15`, color: C.teal, padding: '4px 10px',
                       borderRadius: '6px', marginBottom: '12px', letterSpacing: '0.5px',
                     }}>
-                      {ev.category}
+                      {category}
                     </span>
                     <h4 style={{
                       fontFamily: playfair, fontSize: '18px', fontWeight: 700,
                       color: C.navyLight, marginBottom: '10px', lineHeight: 1.35,
                     }}>
-                      {ev.title}
+                      {title}
                     </h4>
                     <p style={{ fontSize: '13.5px', color: C.slate, lineHeight: 1.6, marginBottom: '20px' }}>
-                      {ev.description}
+                      {description}
                     </p>
                   </div>
 
@@ -432,7 +428,7 @@ export default function GalleryEvents() {
                     padding: '0 24px 24px', display: 'flex', alignItems: 'center',
                     justifyContent: 'space-between', gap: '12px',
                   }}>
-                    <span style={{ fontSize: '13px', color: C.slate }}>📍 {ev.location}</span>
+                    <span style={{ fontSize: '13px', color: C.slate }}>📍 {location}</span>
                     <button
                       onClick={() => navigate('contact')}
                       style={{
@@ -442,7 +438,7 @@ export default function GalleryEvents() {
                       }}
                       className="ge-btn-primary"
                     >
-                      Register
+                      {ctaText || 'Register'}
                     </button>
                   </div>
                 </div>
@@ -453,7 +449,7 @@ export default function GalleryEvents() {
       </section>
 
       {/* ═══════════════ PHOTO GALLERY ═══════════════ */}
-      <section style={{ background: C.white, padding: '96px 24px' }}>
+      <section id="photo-gallery" style={{ background: C.white, padding: '96px 24px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <AnimateOnScroll variant="fade-up">
             <span style={{
@@ -466,10 +462,10 @@ export default function GalleryEvents() {
               fontFamily: playfair, fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 800,
               color: C.navyLight, marginBottom: '12px',
             }}>
-              Moments from Our Community
+              Moments from REDA
             </h2>
             <p style={{ color: C.slate, maxWidth: '520px', marginBottom: '36px', lineHeight: 1.7, fontSize: '15px' }}>
-              Snapshots from REDA's events, workshops, installations, and community initiatives across Uttarakhand.
+              Explore moments from REDA’s awareness initiatives, stakeholder interactions, community engagement, and renewable participation activities across Uttarakhand.
             </p>
           </AnimateOnScroll>
 
@@ -651,16 +647,16 @@ export default function GalleryEvents() {
               display: 'inline-block', fontSize: '12px', fontWeight: 700, letterSpacing: '3px',
               textTransform: 'uppercase' as const, color: C.orange, marginBottom: '12px',
             }}>
-              PAST HIGHLIGHTS
+              RECENT HIGHLIGHTS
             </span>
             <h2 style={{
               fontFamily: playfair, fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 800,
               color: C.navyLight, marginBottom: '12px',
             }}>
-              Events We've Hosted
+              Community Moments & Activities
             </h2>
             <p style={{ color: C.slate, maxWidth: '520px', marginBottom: '48px', lineHeight: 1.7, fontSize: '15px' }}>
-              A look back at the events that brought our community together and drove real impact.
+              A look back at awareness initiatives, stakeholder participation, and community engagement activities.
             </p>
           </AnimateOnScroll>
 
@@ -668,35 +664,78 @@ export default function GalleryEvents() {
             display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
             gap: '24px',
           }}>
-            {pastEvents.map((ev, idx) => (
-              <AnimateOnScroll key={ev.name} variant="fade-up" delay={Math.min(idx + 1, 5) as 1|2|3|4|5}>
+            {pastEvents.map(({ name, location, gradient }, idx) => (
+              <AnimateOnScroll key={name} variant="fade-up" delay={Math.min(idx + 1, 5) as 1|2|3|4|5}>
                 <div className="ge-event-card" style={{
                   borderRadius: '16px', overflow: 'hidden', background: C.white,
                   boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
                   transition: 'all 0.3s ease',
                 }}>
-                  <div style={{ background: ev.gradient, height: '120px' }} />
+                  <div style={{ background: gradient, height: '120px' }} />
                   <div style={{ padding: '20px' }}>
                     <h4 style={{
                       fontFamily: playfair, fontSize: '17px', fontWeight: 700,
                       color: C.navyLight, marginBottom: '8px',
                     }}>
-                      {ev.name}
+                      {name}
                     </h4>
-                    <p style={{ fontSize: '13px', color: C.slate, marginBottom: '6px' }}>
-                      📍 {ev.location} · {ev.date}
+                    <p style={{ fontSize: '13px', color: C.slate, marginBottom: '0px' }}>
+                      📍 {location}
                     </p>
-                    <span style={{
-                      display: 'inline-block', fontSize: '12px', fontWeight: 700,
-                      color: C.teal, marginTop: '4px',
-                    }}>
-                      👥 {ev.attendees} Attendees
-                    </span>
                   </div>
                 </div>
               </AnimateOnScroll>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ CTA ═══════════════ */}
+      <section style={{ position: 'relative', overflow: 'hidden', padding: '96px 24px' }}>
+        {/* full section background image */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          backgroundImage: `url(${galleryCTAImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }} />
+        {/* dark overlay (55% opacity) with subtle gradient from bottom to top */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          background: 'linear-gradient(to top, rgba(15, 30, 53, 0.65) 0%, rgba(15, 30, 53, 0.45) 100%)',
+        }} />
+
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+          <AnimateOnScroll variant="fade-up">
+            <h2 style={{
+              fontFamily: playfair, fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', fontWeight: 800,
+              color: C.white, marginBottom: '20px',
+            }}>
+              Be Part of REDA Activities
+            </h2>
+            <p style={{
+              fontSize: '16px', lineHeight: 1.7, color: 'rgba(255, 255, 255, 0.8)',
+              maxWidth: '600px', margin: '0 auto 36px',
+            }}>
+              Join REDA in creating stronger awareness, participation, and renewable engagement across Uttarakhand.
+            </p>
+            <button
+              onClick={() => navigate('contact')}
+              className="ge-btn-primary"
+              style={{
+                background: '#FF9644', color: C.white, border: 'none', padding: '14px 36px',
+                borderRadius: '8px', fontSize: '15px', fontWeight: 700, cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+              }}
+            >
+              Connect With REDA
+            </button>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -731,8 +770,12 @@ export default function GalleryEvents() {
 
         /* Button hover */
         .ge-btn-primary:hover {
-          filter: brightness(0.9);
+          background-color: #f97316 !important;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
           transform: translateY(-1px);
+        }
+        .ge-btn-primary:active {
+          transform: scale(0.95) !important;
         }
         .ge-btn-outline:hover {
           border-color: ${C.navyLight} !important;
