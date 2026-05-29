@@ -1,108 +1,150 @@
+import { useState } from 'react';
 import {
-  Search, Megaphone, Handshake, Globe, CheckCircle, ArrowRight,
-  FileText, Users, BarChart, Newspaper
+  Search, Megaphone, Handshake, Globe, CheckCircle,
+  Users, Building2, TrendingUp
 } from 'lucide-react';
-import { useNavigation } from '../context/NavigationContext';
-import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import AnimateOnScroll from '../components/AnimateOnScroll';
+import policycard1 from '../assets/policy/policycard1.JPG';
+import policycard2 from '../assets/policy/policycard2.JPG';
+import policycard3 from '../assets/policy/policycard3.JPG';
+import policycard4 from '../assets/policy/policycard4.JPG';
+import policycard5 from '../assets/policy/policycard5.JPG';
+import policycard6 from '../assets/policy/policycard6.JPG';
+import policycard7 from '../assets/policy/policycard7.JPG';
+import policycard8 from '../assets/policy/policycard8.JPG';
+import policyHero from '../assets/policy/policy.jpg';
+import policyImpact from '../assets/policy/impact.jpg';
 
 const focusAreas = [
   {
     icon: Search,
-    title: 'Policy Analysis',
+    title: 'Government Engagement',
     color: 'text-blue-trust',
     bg: 'bg-blue-50',
-    desc: 'Identifying gaps and opportunities in renewable energy policies to ensure they are practical, impactful, and aligned with industry ground realities.',
+    desc: 'Engaging with government departments and agencies to communicate stakeholder concerns, support renewable energy development, and encourage constructive dialogue across Uttarakhand.',
     points: [
-      'Independent assessment of current solar policies',
-      'Identification of procedural bottlenecks',
-      'Data-driven policy recommendations',
+      'Engaging with government departments',
+      'Supporting renewable energy development',
+      'Encouraging constructive dialogue',
     ],
   },
   {
     icon: Megaphone,
-    title: 'Advocacy',
+    title: 'Stakeholder Representation',
     color: 'text-green-deep',
     bg: 'bg-green-50',
-    desc: 'Engaging with policymakers to support solar growth and advocating for a simplified, supportive regulatory environment for renewable energy stakeholders.',
+    desc: 'Representing renewable energy professionals, vendors, entrepreneurs, consumers, and industry participants by bringing their concerns and recommendations to relevant authorities.',
     points: [
-      'Representing member interests in state committees',
-      'Unified voice for industry-level challenges',
-      'Active participation in public consultations',
+      'Representing professionals and vendors',
+      'Bringing concerns to relevant authorities',
+      'Unified voice for recommendations',
     ],
   },
   {
     icon: Handshake,
-    title: 'Collaboration',
+    title: 'Public Awareness',
     color: 'text-solar',
     bg: 'bg-orange-50',
-    desc: 'Working with government bodies to align initiatives. We act as a collaborative partner to various state agencies to drive collective energy goals.',
+    desc: 'Promoting awareness about rooftop solar, clean energy adoption, EV infrastructure, government schemes, and sustainable energy opportunities through outreach initiatives.',
     points: [
-      'Joint initiatives with UREDA and state departments',
-      'Coordination for large-scale awareness programmes',
-      'Aligning industry innovations with state plans',
+      'Rooftop solar adoption guidance',
+      'EV infrastructure scheme promotion',
+      'Sustainable outreach initiatives',
     ],
   },
   {
     icon: Globe,
-    title: 'National Outreach',
+    title: 'Industry Collaboration',
     color: 'text-rose-600',
     bg: 'bg-rose-50',
-    desc: 'Representing Uttarakhand’s unique mountain context at national platforms — ensuring hill state challenges are reflected in national solar policies.',
+    desc: 'Building partnerships between industry stakeholders, institutions, local communities, and government bodies to strengthen Uttarakhand’s renewable energy ecosystem.',
     points: [
-      'Participation in MNRE consultations',
-      'Representation at national conferences',
-      'Knowledge sharing with other hill states',
+      'Building strong partnerships',
+      'Connecting communities and government',
+      'Ecosystem development campaigns',
     ],
   },
 ];
 
-const publications = [
-  {
-    type: 'Report',
-    title: 'State of Solar Energy in Uttarakhand 2024',
-    date: 'January 2024',
-    desc: 'A comprehensive annual review of solar adoption progress, challenges, and policy recommendations.',
-  },
-  {
-    type: 'Position Paper',
-    title: 'Simplifying Net Metering for Hill States',
-    date: 'September 2023',
-    desc: 'Policy brief submitted to UREDA recommending procedural reforms for net metering applications.',
-  },
-  {
-    type: 'Research',
-    title: 'Off-Grid Solar for Remote Himalayan Communities',
-    date: 'May 2023',
-    desc: 'Field research on off-grid solar adoption patterns and barriers in high-altitude villages.',
-  },
-  {
-    type: 'Brief',
-    title: 'Solar Finance Gap in Rural Uttarakhand',
-    date: 'February 2023',
-    desc: 'Analysis of credit access challenges for rural solar adoption and policy recommendations.',
-  },
+const achievements = [
+  'Renewable energy awareness campaigns across Uttarakhand',
+  'PM Surya Ghar awareness and stakeholder support initiatives',
+  'Government engagement regarding renewable energy implementation challenges',
+  'Stakeholder consultations and industry discussions',
+  'Public outreach through media, awareness campaigns, and community engagement',
+  'Support for clean energy adoption and sustainable development',
 ];
 
-const typeColors: Record<string, string> = {
-  Report: 'bg-blue-50 text-blue-trust',
-  'Position Paper': 'bg-green-50 text-green-deep',
-  Research: 'bg-orange-50 text-solar',
-  Brief: 'bg-rose-50 text-rose-600',
-};
-
-const achievements = [
-  'Contributed to Uttarakhand Solar Policy revision in 2022',
-  "Net metering process simplified following REDA's representation",
-  'PM Surya Ghar scheme awareness campaigns in 10 districts',
-  'Member of UREDA State Advisory Committee since 2021',
-  'Joint submission with 6 NGOs to MNRE hill state task force',
-  'Published 12+ policy research papers and briefs',
+const mediaEngagement = [
+  {
+    title: 'PM Surya Ghar Subsidy Clarification',
+    category: 'PM Surya Ghar',
+    desc: 'Official REDA poster clarifying subsidy concerns, rules, and Direct Benefit Transfer processes for consumers.',
+    img: policycard1,
+    aspect: 'aspect-[3/4]',
+    fit: 'object-contain',
+  },
+  {
+    title: 'Together, We Power Change',
+    category: 'Stakeholder Outreach',
+    desc: 'Official REDA poster highlighting ecosystem collaboration and renewable dialogues across Uttarakhand.',
+    img: policycard2,
+    aspect: 'aspect-[3/4]',
+    fit: 'object-contain',
+  },
+  {
+    title: 'EV Charging Policy Awareness',
+    category: 'EV Charging',
+    desc: 'Official REDA poster raising awareness regarding EV charging guidelines, corridors, and green mobility grids.',
+    img: policycard3,
+    aspect: 'aspect-[3/4]',
+    fit: 'object-contain',
+  },
+  {
+    title: 'Press Conferences',
+    category: 'Media Event',
+    desc: 'REDA representatives interacting with media to communicate renewable energy developments, stakeholder concerns, and awareness initiatives.',
+    img: policycard4,
+    aspect: 'aspect-video',
+    fit: 'object-cover',
+  },
+  {
+    title: 'Newspaper Coverage',
+    category: 'Press Release',
+    desc: 'Media coverage highlighting REDA’s renewable energy advocacy, awareness campaigns, and stakeholder engagement activities.',
+    img: policycard5,
+    aspect: 'aspect-video',
+    fit: 'object-cover',
+  },
+  {
+    title: 'Awareness Campaign Posters',
+    category: 'Campaign Poster',
+    desc: 'Educational and awareness-focused creatives promoting renewable energy adoption, government schemes, rooftop solar initiatives, and sustainability.',
+    img: policycard6,
+    aspect: 'aspect-[3/4]',
+    fit: 'object-contain',
+  },
+  {
+    title: 'Public Announcements',
+    category: 'Announcement',
+    desc: 'Public communications, notices, stakeholder updates, and information related to renewable energy initiatives and implementation challenges.',
+    img: policycard7,
+    aspect: 'aspect-[4/3]',
+    fit: 'object-cover',
+  },
+  {
+    title: 'Renewable Energy Awareness Creatives',
+    category: 'Digital Creative',
+    desc: 'Visual educational content designed to increase public awareness regarding clean energy, sustainability, and renewable energy opportunities.',
+    img: policycard8,
+    aspect: 'aspect-square',
+    fit: 'object-cover',
+  },
 ];
 
 export default function PolicyAdvocacy() {
-  const { navigate } = useNavigation();
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   return (
     <div className="bg-bg-warm pt-20">
@@ -110,24 +152,21 @@ export default function PolicyAdvocacy() {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="Policy advocacy"
+            src={policyHero}
+            alt="REDA Policy Advocacy"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-blue-trust/88" />
+          <div className="absolute inset-0 bg-blue-trust/45" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block text-sm font-semibold uppercase tracking-widest text-solar mb-4">
             Policy & Advocacy
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight hero-text-shadow">
-            Shaping Policies for a Sustainable Future
+            Advocating Renewable Energy Growth in Uttarakhand
           </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed hero-text-shadow mb-6">
-            REDA works alongside policymakers, regulators, and civil society to create an environment where solar energy can thrive — for the benefit of every Uttarakhand citizen.
-          </p>
-          <p className="text-white/95 font-semibold text-lg hero-text-shadow italic">
-            "REDA acts as a bridge between industry and government."
+          <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed hero-text-shadow">
+            REDA serves as a bridge between renewable energy stakeholders, government institutions, industry professionals, and citizens by promoting awareness, constructive dialogue, and sustainable energy development across Uttarakhand.
           </p>
         </div>
       </section>
@@ -137,10 +176,10 @@ export default function PolicyAdvocacy() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { icon: FileText, value: '12+', label: 'Policy Papers Published' },
-              { icon: Users, value: '6', label: 'Government Committees' },
-              { icon: Newspaper, value: '3', label: 'Policy Reforms Contributed To' },
-              { icon: BarChart, value: '5+', label: 'Years of Advocacy' },
+              { icon: Handshake, value: '✓', label: 'Government Engagement' },
+              { icon: Users, value: '✓', label: 'Stakeholder Representation' },
+              { icon: Megaphone, value: '✓', label: 'Public Awareness Initiatives' },
+              { icon: Globe, value: '✓', label: 'Renewable Energy Advocacy' },
             ].map(({ icon: Icon, value, label }, idx) => (
               <AnimateOnScroll key={label} variant="fade-up" delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}>
                 <div className="w-11 h-11 bg-solar/10 rounded-xl flex items-center justify-center mx-auto mb-3">
@@ -148,6 +187,66 @@ export default function PolicyAdvocacy() {
                 </div>
                 <div className="text-2xl font-extrabold text-brand-primary">{value}</div>
                 <div className="text-sm text-brand-secondary mt-1">{label}</div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What We Do */}
+      <section className="py-20 bg-bg-warm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll variant="fade-up">
+            <SectionHeader
+              label="What We Do"
+              title="Strengthening Uttarakhand’s Renewable Energy Ecosystem"
+              subtitle="REDA acts as an active catalyst for green energy development, collaborative dialogue, and sustainable growth across the state."
+            />
+          </AnimateOnScroll>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {[
+              {
+                icon: Building2,
+                title: 'Government Dialogue',
+                desc: 'Facilitating communication with government departments and authorities regarding renewable energy initiatives and stakeholder concerns.',
+                color: 'text-blue-trust',
+                bg: 'bg-blue-50',
+              },
+              {
+                icon: Users,
+                title: 'Stakeholder Representation',
+                desc: 'Representing renewable energy professionals, entrepreneurs, vendors, and consumers across Uttarakhand.',
+                color: 'text-green-deep',
+                bg: 'bg-green-50',
+              },
+              {
+                icon: Megaphone,
+                title: 'Public Awareness',
+                desc: 'Promoting awareness about renewable energy schemes, rooftop solar adoption, sustainability, and clean energy opportunities.',
+                color: 'text-solar',
+                bg: 'bg-orange-50',
+              },
+              {
+                icon: TrendingUp,
+                title: 'Industry Development',
+                desc: 'Supporting the growth of Uttarakhand’s renewable energy ecosystem through collaboration and engagement.',
+                color: 'text-rose-600',
+                bg: 'bg-rose-50',
+              },
+            ].map(({ icon: Icon, title, desc, color, bg }, idx) => (
+              <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}>
+                <div className="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover border border-gray-100 hover:border-brand-primary/10 transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full group">
+                  <div className={`w-12 h-12 ${bg} rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className={`w-6 h-6 ${color}`} />
+                  </div>
+                  <h3 className="text-lg font-bold text-brand-primary mb-3 group-hover:text-green-deep transition-colors duration-300">
+                    {title}
+                  </h3>
+                  <p className="text-brand-secondary text-sm leading-relaxed flex-grow">
+                    {desc}
+                  </p>
+                </div>
               </AnimateOnScroll>
             ))}
           </div>
@@ -199,10 +298,10 @@ export default function PolicyAdvocacy() {
                 Impact
               </span>
               <h2 className="text-3xl font-extrabold text-brand-primary mb-6 leading-tight">
-                Measurable Policy Impact
+                Advocacy & Engagement Highlights
               </h2>
               <p className="text-brand-secondary leading-relaxed mb-8">
-                Our advocacy isn't theoretical — we track concrete outcomes and ensure our work translates into real policy changes that benefit communities across Uttarakhand.
+                REDA’s efforts focus on awareness, stakeholder engagement, government communication, and supporting renewable energy development across Uttarakhand.
               </p>
               <ul className="space-y-3">
                 {achievements.map((a) => (
@@ -215,8 +314,8 @@ export default function PolicyAdvocacy() {
             </AnimateOnScroll>
             <AnimateOnScroll variant="slide-right" as="div">
               <img
-                src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Policy meetings"
+                src={policyImpact}
+                alt="Advocacy and Engagement Highlights"
                 className="rounded-2xl shadow-card-hover w-full object-cover aspect-[4/3]"
               />
             </AnimateOnScroll>
@@ -224,44 +323,207 @@ export default function PolicyAdvocacy() {
         </div>
       </section>
 
-      {/* Publications */}
-      <section className="py-20 bg-bg-warm">
+      {/* Key Advocacy Milestones */}
+      <section className="py-20 bg-bg-warm border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll variant="fade-up">
             <SectionHeader
-              label="Knowledge Hub"
-              title="Research & Publications"
-              subtitle="Our policy research is freely available for download. We believe in open knowledge for greater impact."
+              label="Milestones"
+              title="Key Advocacy Milestones"
+              subtitle="REDA's evolutionary journey in driving key policy shifts, community engagement, and clean mobility campaigns across Uttarakhand."
             />
           </AnimateOnScroll>
-          <div className="grid sm:grid-cols-2 gap-5 mt-4">
-            {publications.map(({ type, title, date, desc }, idx) => (
-              <AnimateOnScroll
-                key={title}
-                variant="fade-up"
-                delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}
-              >
-              <div className="bg-white rounded-2xl p-6 shadow-card border border-gray-100 hover:shadow-card-hover transition-shadow group cursor-pointer h-full">
-                <div className="flex items-start justify-between mb-3">
-                  <span className={`text-xs font-semibold px-3 py-1 rounded-full ${typeColors[type]}`}>{type}</span>
-                  <span className="text-xs text-brand-secondary">{date}</span>
+
+          {/* Timeline Wrapper */}
+          <div className="mt-16 relative">
+            {/* Desktop Horizontal Line */}
+            <div className="hidden lg:block absolute top-[22px] left-[10%] right-[10%] h-0.5 bg-gray-200">
+              <div className="absolute top-0 left-0 h-full bg-solar w-3/4 animate-pulse" /> {/* Progress indicator */}
+            </div>
+
+            {/* Timeline Items */}
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-6 relative z-10">
+              {[
+                {
+                  date: 'Phase 1',
+                  title: 'Renewable Energy Awareness Campaigns',
+                  desc: 'Statewide awareness initiatives promoting renewable energy adoption, sustainability, and public participation across Uttarakhand.',
+                  icon: Megaphone,
+                },
+                {
+                  date: 'Phase 2',
+                  title: 'Stakeholder Consultations',
+                  desc: 'Facilitating dialogue between renewable energy professionals, vendors, consumers, and industry participants to address sector challenges and opportunities.',
+                  icon: Users,
+                },
+                {
+                  date: 'Phase 3',
+                  title: 'PM Surya Ghar Representation Activities',
+                  desc: 'Supporting stakeholder concerns related to PM Surya Ghar Muft Bijli Yojana and facilitating communication with relevant authorities.',
+                  icon: Handshake,
+                },
+                {
+                  date: 'Phase 4',
+                  title: 'Government Engagement Initiatives',
+                  desc: 'Engaging with government departments and officials to communicate stakeholder concerns and implementation challenges affecting the renewable energy sector.',
+                  icon: Building2,
+                },
+                {
+                  date: 'Phase 5',
+                  title: 'EV Policy Awareness Activities',
+                  desc: 'Promoting awareness and discussion around EV charging infrastructure, clean mobility, and emerging energy opportunities in Uttarakhand.',
+                  icon: Globe,
+                },
+              ].map(({ date, title, desc, icon: Icon }, idx) => (
+                <AnimateOnScroll key={title} variant="fade-up" delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}>
+                  {/* Vertical layout on mobile / Horizontal spacing on desktop */}
+                  <div className="flex flex-col lg:items-center text-left lg:text-center relative group">
+                    {/* Mobile Vertical Line */}
+                    <div className="lg:hidden absolute left-[22px] top-10 bottom-[-48px] w-0.5 bg-gray-200" />
+                    
+                    {/* Icon Node Container */}
+                    <div className="flex items-center lg:flex-col lg:justify-center">
+                      <div className="w-11 h-11 bg-white border-2 border-solar text-solar rounded-full flex items-center justify-center font-extrabold text-sm shadow-md group-hover:scale-110 group-hover:bg-solar group-hover:text-white transition-all duration-300 z-20 shrink-0">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className="ml-4 lg:ml-0 lg:mt-3 text-xs font-bold uppercase tracking-wider text-solar bg-solar/10 px-2.5 py-1 rounded-full">
+                        {date}
+                      </span>
+                    </div>
+
+                    {/* Content Box */}
+                    <div className="ml-16 lg:ml-0 lg:mt-6 bg-white lg:bg-transparent p-5 lg:p-0 rounded-2xl border border-gray-100 lg:border-none shadow-sm lg:shadow-none hover:shadow-card lg:hover:shadow-none transition-all duration-300">
+                      <h4 className="text-base font-extrabold text-brand-primary mb-2 group-hover:text-solar transition-colors duration-300">
+                        {title}
+                      </h4>
+                      <p className="text-brand-secondary text-xs leading-relaxed max-w-xs mx-auto">
+                        {desc}
+                      </p>
+                    </div>
+                  </div>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* REDA Awareness & Advocacy Media Hub */}
+      <section className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll variant="fade-up">
+            <SectionHeader
+              label="Media Hub"
+              title="REDA Awareness & Advocacy Media Hub"
+              subtitle="Showcasing REDA’s awareness campaigns, policy communications, stakeholder outreach activities, public information materials, renewable energy initiatives, and advocacy-related publications across Uttarakhand."
+            />
+          </AnimateOnScroll>
+
+          {/* Responsive Poster Gallery Grid */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {mediaEngagement.map((item, idx) => (
+              <AnimateOnScroll key={item.title} variant="fade-up" delay={(Math.min(idx + 1, 5)) as 1|2|3|4|5}>
+                <div
+                  onClick={() => setLightboxIdx(idx)}
+                  className="bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover border border-gray-100 transition-all duration-300 transform hover:-translate-y-1.5 group cursor-pointer flex flex-col h-full"
+                >
+                  {/* Fixed Image Container */}
+                  <div className="relative w-full h-[300px] sm:h-[360px] lg:h-[420px] bg-[#f8f8f8] flex items-center justify-center overflow-hidden rounded-t-2xl border-b border-gray-100/50">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-full h-full object-contain object-center group-hover:scale-102 transition-transform duration-500 p-4"
+                    />
+                    {/* Badge */}
+                    <div className="absolute top-4 left-4 bg-solar/95 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm z-10">
+                      {item.category}
+                    </div>
+                    {/* Hover magnification overlay */}
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                      <span className="text-white text-3xl font-light">⤢</span>
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="min-h-[56px] mb-2 flex items-start">
+                      <h3 className="text-lg font-bold text-brand-primary group-hover:text-green-deep transition-colors duration-300 line-clamp-2">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <div className="min-h-[72px] flex items-start">
+                      <p className="text-brand-secondary text-xs leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-bold text-brand-primary text-lg mb-2 group-hover:text-green-deep transition-colors">{title}</h3>
-                <p className="text-sm text-brand-secondary leading-relaxed mb-4">{desc}</p>
-                <div className="flex items-center gap-1 text-sm font-semibold text-solar">
-                  Download PDF <ArrowRight className="w-4 h-4" />
-                </div>
-              </div>
               </AnimateOnScroll>
             ))}
           </div>
-          <AnimateOnScroll variant="fade-up" className="mt-10 text-center">
-            <Button variant="ghost" onClick={() => navigate('contact')}>
-              Request More Publications <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-          </AnimateOnScroll>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      {lightboxIdx !== null && (
+        <div
+          onClick={() => setLightboxIdx(null)}
+          className="fixed inset-0 z-[9999] bg-black/95 flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 animate-fade-in"
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setLightboxIdx(null)}
+            className="absolute top-6 right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white flex items-center justify-center text-xl transition-all active:scale-95 z-50 cursor-pointer"
+          >
+            ✕
+          </button>
+
+          {/* Modal Container */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-4xl w-full flex flex-col items-center"
+          >
+            <img
+              src={mediaEngagement[lightboxIdx].img}
+              alt={mediaEngagement[lightboxIdx].title}
+              className="max-h-[70vh] max-w-full object-contain rounded-xl shadow-2xl"
+            />
+            <div className="mt-6 text-center max-w-xl text-white">
+              <span className="text-solar text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-solar/10 rounded-full">
+                {mediaEngagement[lightboxIdx].category}
+              </span>
+              <h3 className="text-xl font-bold mt-3">
+                {mediaEngagement[lightboxIdx].title}
+              </h3>
+              <p className="text-white/70 text-sm mt-2 leading-relaxed">
+                {mediaEngagement[lightboxIdx].desc}
+              </p>
+            </div>
+
+            {/* Navigation buttons */}
+            <div className="flex gap-4 mt-6">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightboxIdx(lightboxIdx === 0 ? mediaEngagement.length - 1 : lightboxIdx - 1);
+                }}
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white flex items-center justify-center transition-all cursor-pointer"
+              >
+                ←
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightboxIdx(lightboxIdx === mediaEngagement.length - 1 ? 0 : lightboxIdx + 1);
+                }}
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white flex items-center justify-center transition-all cursor-pointer"
+              >
+                →
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
