@@ -445,17 +445,13 @@ export default function PolicyAdvocacy() {
                   </div>
 
                   {/* Card Content */}
-                  <div className="pt-4 px-5 pb-5 flex flex-col flex-grow">
-                    <div className="min-h-[44px] mb-1.5 flex items-start">
-                      <h3 className="text-[17px] font-bold text-brand-primary group-hover:text-green-deep transition-colors duration-300 line-clamp-2 leading-snug">
-                        {item.title}
-                      </h3>
-                    </div>
-                    <div className="min-h-[60px] flex items-start">
-                      <p className="text-brand-secondary text-xs leading-relaxed line-clamp-3">
-                        {item.desc}
-                      </p>
-                    </div>
+                  <div className="pt-3.5 px-5 pb-5 flex flex-col flex-grow">
+                    <h3 className="text-[17px] font-bold text-brand-primary group-hover:text-green-deep transition-colors duration-300 line-clamp-2 leading-snug mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-brand-secondary text-xs leading-relaxed line-clamp-3">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
               </AnimateOnScroll>
