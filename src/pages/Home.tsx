@@ -173,7 +173,7 @@ export default function Home() {
             alt="Solar panels in Uttarakhand"
             className="w-full h-full object-cover rounded-xl"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-green-deep/90 via-green-deep/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-green-deep/50 via-green-deep/20 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-32 pb-24">
@@ -182,10 +182,10 @@ export default function Home() {
               <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-solar" />
               Based in Uttarakhand, India
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.15] sm:leading-[1.1] tracking-tight mb-5 sm:mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.15] sm:leading-[1.1] tracking-tight mb-5 sm:mb-6 hero-text-shadow">
               Empowering Uttarakhand Through Renewable Energy <span className="text-solar">Awareness & Advocacy</span>
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-white/90 leading-[1.7] max-w-[540px] lg:max-w-[600px] mb-6 sm:mb-8">
+            <p className="text-base sm:text-lg lg:text-xl text-white/90 leading-[1.7] max-w-[540px] lg:max-w-[600px] mb-6 sm:mb-8 hero-text-shadow">
               Renewable Energy Development Association (REDA) is a non-commercial association dedicated to renewable energy awareness, stakeholder engagement, sustainability initiatives, and public participation across Uttarakhand.
             </p>
             <p className="text-sm sm:text-base text-white/90 font-medium mb-8 sm:mb-10 flex items-start sm:items-center gap-2.5">
