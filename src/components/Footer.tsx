@@ -13,12 +13,12 @@ const exploreLinks: { label: string; page: PageId }[] = [
 ];
 
 const governmentLinks: { label: string; url: string }[] = [
-  { label: 'UPCL', url: 'https://upcl.org/' },
+  { label: 'UPCL', url: 'https://upcl.uk.gov.in' },
   { label: 'UREDA', url: 'https://ureda.uk.gov.in/' },
   { label: 'MNRE', url: 'https://mnre.gov.in/' },
   { label: 'Invest Uttarakhand', url: 'https://investuttarakhand.uk.gov.in/' },
   { label: 'PM Surya Ghar Yojana', url: 'https://pmsuryaghar.gov.in/' },
-  { label: 'UREC', url: 'https://www.urec.in/' },
+  { label: 'UREC', url: 'https://uerc.uk.gov.in' },
 ];
 
 export default function Footer() {

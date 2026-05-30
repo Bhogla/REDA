@@ -44,7 +44,6 @@ const featuredEvent = {
   description:
     'Highlights from REDA’s awareness initiatives, stakeholder engagement, and community participation activities across Uttarakhand.',
   date: { day: 'Recent', month: 'Activity', year: '' },
-  targetDate: new Date('2025-06-28T09:00:00+05:30'),
   meta: [
     { icon: '📅', text: 'Recent Activity' },
     { icon: '📍', text: 'Across Uttarakhand' },
@@ -106,29 +105,11 @@ const pastEvents = [
   { name: 'Renewable Participation Event', location: 'Uttarkashi', gradient: 'linear-gradient(135deg, #8b6914, #f5a623)' },
 ];
 
-/* ─── Helpers ─── */
-function getTimeLeft(target: Date) {
-  const diff = Math.max(0, target.getTime() - Date.now());
-  return {
-    days:    Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours:   Math.floor((diff / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((diff / (1000 * 60)) % 60),
-    seconds: Math.floor((diff / 1000) % 60),
-  };
-}
-
 /* ────────────────────────────────────────────────────────────
    COMPONENT
 ──────────────────────────────────────────────────────────── */
 export default function GalleryEvents() {
   const { navigate } = useNavigation();
-
-  /* countdown */
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft(featuredEvent.targetDate));
-  useEffect(() => {
-    const id = setInterval(() => setTimeLeft(getTimeLeft(featuredEvent.targetDate)), 1000);
-    return () => clearInterval(id);
-  }, []);
 
   /* gallery filter */
   const [activeFilter, setActiveFilter] = useState('All Photos');

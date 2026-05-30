@@ -13,6 +13,7 @@ import policycard5 from '../assets/policy/policycard5.JPG';
 import policycard6 from '../assets/policy/policycard6.JPG';
 import policycard7 from '../assets/policy/policycard7.JPG';
 import policycard8 from '../assets/policy/policycard8.JPG';
+import policycard9 from '../assets/policy/policycard9.jpg';
 import policyHero from '../assets/policy/policy.jpg';
 import policyImpact from '../assets/policy/impact.jpg';
 
@@ -140,6 +141,14 @@ const mediaEngagement = [
     img: policycard8,
     aspect: 'aspect-square',
     fit: 'object-cover',
+  },
+  {
+    title: 'Paryavaran Sanrakshan Evam Swachh Urja Event',
+    category: 'EVENT PARTICIPATION',
+    desc: 'Team REDA participated in the environmental awareness and clean energy event chaired by Hon’ble Minister Shri Pradeep Batra Ji, promoting sustainability, renewable energy, and green development across Uttarakhand.',
+    img: policycard9,
+    aspect: 'aspect-[3/4]',
+    fit: 'object-contain',
   },
 ];
 
